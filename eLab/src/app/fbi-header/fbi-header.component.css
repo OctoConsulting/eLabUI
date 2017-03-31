@@ -1,0 +1,18 @@
+.black-navbar {
+    background-color: #000000;
+}
+
+.fbi-header-background {
+    background: url('../../assets/fbi-header.png') no-repeat center center;
+    width: 300%;
+    background-size: cover;
+}
+
+.centered {
+    text-align: center;
+    text-align: justify;
+}
+
+.white-text {
+    color: #ffffff;
+}
