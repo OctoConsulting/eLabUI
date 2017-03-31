@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FbiHeaderComponent } from './fbi-header/fbi-header.component';
+import { FbiFooterComponent } from './fbi-footer/fbi-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FbiHeaderComponent
+    FbiHeaderComponent,
+    FbiFooterComponent
   ],
   imports: [
     BrowserModule,
