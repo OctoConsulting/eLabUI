@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class EvidenceComponent {
-  pizza = 'pizza';
   public evidence_info = {
     evidence_number: 1,
     evidence_types: ['container', 'package', 'item'],
