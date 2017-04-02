@@ -2,23 +2,42 @@
 <br/>
 
 <div class='container-fluid'>
-    <h4 class='centered'>Enter Evidence Below for Evidence Number {{evidence_number}}</h4>
+    <h4 class='centered'>Enter Evidence Below:</h4>
   <div class='row'>
       <div class='col-md-6 form-group'>
           <label for='evidence_name'>Evidence Name:</label> <br>
           <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...'>
-          <!-- Name for a piece of evidence (text field) -->
       </div>
-      <div class='col-md-6 form-group'>
-          <label>For Analysis:</label><br>
-          <input type='checkbox' value='for_analysis'>
-          <!-- Whether or not this is for analysis (check box) -->
+      <div class='col-md-3 form-group'>
+          <label for='evidence_number'>Evidence Number:</label><br>
+          <input type='text' class='form-control' id='evidence_number' value={{evidence_info.evidence_number}}>
+      </div>
+      <div class='col-md-3 form-group'>
+          <label for='evidence_analysis'>Is For Analysis:</label><br>
+          <input id='evidence_analysis' type='checkbox' value='for_analysis'>
       </div>
   </div>
   <div class='row'>
-      <div class='col-md-6'>
+      <div class='col-md-6 form-group'>
+          <label for='evidence_type'>Evidence Type</label>
+          <select class='form-control' id='evidence_type'>
+            <option value='container'>Container</option>
+            <option value='package'>Package</option>
+            <option value='item'>Item</option>
+          </select>
       </div>
       <div class='col-md-6'>
+          <label for='evidence_parent'>Evidence Parent</label>
+          <select class='form-control' id='evidence_parent'>
+            <option value='container_1'>Container 1</option>
+          </select>
+      </div>
+  </div>
+  <div class='row'>
+      <div class='col-md-12'>
+          <div id='evidence_preview'>
+          </div>
+          <button class='btn btn-primary'>Submit</button>
       </div>
   </div>
 </div>
