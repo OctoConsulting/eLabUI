@@ -1,10 +1,12 @@
 .footer {
-    background-color: black;
-    color: white;
+    background-color: #09093B;
+    color: silver;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 200px;
+    left: 0px;
+    bottom: 0px;
+    height: auto;
     width: 100%;
     overflow:hidden;
-};
+    background: -webkit-linear-gradient(#09093B, #565695);
+  /*background: url('../../assets/FBIseal.jpg') no-repeat center center;*/
+}
