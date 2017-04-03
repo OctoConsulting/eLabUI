@@ -3,41 +3,41 @@
 
 <div class='container-fluid'>
     <h4 class='centered'>New/Edit Evidence:</h4>
-  <div class='row'>
+  <div class='row main_sec'>
       <div class='col-md-6 form-group'>
           <label for='evidence_name'>Evidence Name:</label> <br>
-          <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...'>
+          <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...' value={{evidenceData.name}}>
       </div>
       <div class='col-md-3 form-group'>
           <label for='evidence_number'>Evidence Number:</label><br>
-          <input type='text' class='form-control' id='evidence_number' value={{evidence_info.evidence_number}}>
+          <input type='text' class='form-control' id='evidence_number' value={{evidenceData.number}}>
       </div>
       <div class='col-md-3 form-group'>
           <label for='evidence_analysis'>Is For Analysis:</label><br>
           <input id='evidence_analysis' type='checkbox' value='for_analysis'>
       </div>
   </div>
-  <div class='row'>
+  <div class='row main_sec'>
       <div class='col-md-6 form-group'>
           <label for='evidence_type'>Evidence Type</label>
           <select class='form-control' id='evidence_type'>
-            <option value='container'>Container</option>
-            <option value='package'>Package</option>
-            <option value='item'>Item</option>
+              <option value='{{evidenceData.types[0]}}'>{{evidenceData.types[0]}}</option>
+              <option value='{{evidenceData.types[1]}}'>{{evidenceData.types[1]}}</option>
+              <option value='{{evidenceData.types[2]}}'>{{evidenceData.types[2]}}</option>
           </select>
       </div>
       <div class='col-md-6'>
           <label for='evidence_parent'>Evidence Parent</label>
           <select class='form-control' id='evidence_parent'>
-            <option value='container_1'>Container 1</option>
+              <option value='{{evidenceData.parents[0]}}'>{{evidenceData.parents[0]}}</option>
           </select>
       </div>
   </div>
-  <div class='row'>
+  <div class='row main_sec'>
       <div class='col-md-12'>
-          <div id='evidence_preview'>
+          <div id='evidence_preview main_sec'>
           </div>
-          <button class='btn btn-primary'>Submit</button>
+          <button class='btn btn-primary centered'>Submit</button>
       </div>
   </div>
 </div>
