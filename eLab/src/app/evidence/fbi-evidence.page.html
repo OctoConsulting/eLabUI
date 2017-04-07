@@ -1,43 +1,70 @@
-<br/>
-<br/>
-
 <div class='container-fluid'>
-    <h4 class='centered'>New/Edit Evidence:</h4>
-  <div class='row main_sec'>
-      <div class='col-md-6 form-group'>
-          <label for='evidence_name'>Evidence Name:</label> <br>
-          <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...' value={{evidenceData.name}}>
-      </div>
+  <h4 class='centered'>{{evidenceData.page_title}}</h4>
+  <div class='row'>
       <div class='col-md-3 form-group'>
-          <label for='evidence_number'>Evidence Number:</label><br>
-          <input type='text' class='form-control' id='evidence_number' value={{evidenceData.number}}>
-      </div>
-      <div class='col-md-3 form-group'>
-          <label for='evidence_analysis'>Is For Analysis:</label><br>
-          <input id='evidence_analysis' type='checkbox' value='for_analysis'>
+          <h5><span class='bold'>Item #</span> {{evidenceData.number}}</h5>
       </div>
   </div>
-  <div class='row main_sec'>
-      <div class='col-md-6 form-group'>
-          <label for='evidence_type'>Evidence Type</label>
-          <select class='form-control' id='evidence_type'>
-              <option value='{{evidenceData.types[0]}}'>{{evidenceData.types[0]}}</option>
-              <option value='{{evidenceData.types[1]}}'>{{evidenceData.types[1]}}</option>
-              <option value='{{evidenceData.types[2]}}'>{{evidenceData.types[2]}}</option>
-          </select>
+  <div class='row'>
+      <div class='col-md-6'>
+            <div class='form-group'>
+              <label for='evidence_type'>Type</label>
+              <select class='form-control' id='evidence_type'>
+                <option value='' selected>Select Option</option>
+                <option value='{{evidenceData.types[0]}}'>{{evidenceData.types[0]}}</option>
+                <option value='{{evidenceData.types[1]}}'>{{evidenceData.types[1]}}</option>
+                <option value='{{evidenceData.types[2]}}'>{{evidenceData.types[2]}}</option>
+              </select>
+            </div>
+        </div>
+  </div>
+  <div class='row'>
+      <div class='col-md-6'>
+          <div class='form-group'>
+            <label for='evidence_parent'>Parent Type</label>
+            <select class='form-control' id='evidence_parent'>
+              <option value='{{evidenceData.parents[0]}}'>{{evidenceData.parents[0]}}</option>
+            </select>
+          </div>
       </div>
       <div class='col-md-6'>
-          <label for='evidence_parent'>Evidence Parent</label>
-          <select class='form-control' id='evidence_parent'>
-              <option value='{{evidenceData.parents[0]}}'>{{evidenceData.parents[0]}}</option>
-          </select>
+          <div class='form-group'>
+            <label for='evidence_parent_number'>Parent Evidence #</label>
+            <input type = 'text' class='form-control' id='evidence_parent_number_field' placeholder='Begin Typing Here' size= '10' value={{evidenceData.evidence_parent_number}}>
+          </div>
       </div>
   </div>
-  <div class='row main_sec'>
-      <div class='col-md-12'>
-          <div id='evidence_preview main_sec'>
+  <div class='row'>
+      <div class='col-md-6 form-group'>
+          <div class='form-group'>
+            <label for='evidence_name'>Evidence Name:</label> <br>
+            <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...' value={{evidenceData.name}}>
           </div>
-          <button class='btn btn-primary centered'>Submit</button>
+      </div>
+  </div>
+  <div class='row'>
+      <div class='col-md-3'>
+          <div class='form-group'>
+            <label for='evidence_analysis'>Is For Analysis:</label><br>
+            <input id='evidence_analysis' type='checkbox' value={{evidenceData.for_analysis}}>
+          </div>
+      </div>
+  </div>
+  <div class='row'>
+      <div class='col-md-6'>
+          <button class='btn btn-primary centered'>Save</button>
+      </div>
+      <div class='col-md-6'>
+          <button class='btn btn-danger centered'>Cancel</button>
+      </div>
+  </div>
+  <div class='row'>
+      <div class='col-md-12'>
+          <label for='create_another'>Create Another</label><br>
+          <input id='create_another' type='checkbox' value={{evidenceData.create_another}}>
       </div>
   </div>
 </div>
+
+<br>
+<br>
