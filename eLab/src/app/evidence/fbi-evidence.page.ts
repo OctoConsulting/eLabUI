@@ -13,11 +13,14 @@ export class FbiEvidencePage implements OnInit {
 
   ngOnInit(){
     this.evidenceData = {
+      page_title: 'Evidence - View/Edit',
       name: 'Write Evidence Name Here',
       number: 1,
       for_analysis: false,
       types: ['container', 'package', 'item'],
-      parents: ['container_1']
+      parent_number: '',
+      parents: ['container_1'],
+      create_another: true
     }
   }
 }
