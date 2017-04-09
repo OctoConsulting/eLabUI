@@ -12,6 +12,7 @@ import { FbiErrorComponent } from './fbi-error/fbi-error.component';
 import { FbiHomeComponent } from './home/fbi-home.component';
 import { FbiCaseModule } from './case/fbi-case.module';
 import { FbiEvidenceModule } from './evidence/fbi-evidence.module';
+import { FBISideNav } from './fbi-sidenav/fbi-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FbiEvidenceModule } from './evidence/fbi-evidence.module';
     FbiHeaderComponent,
     FbiFooterComponent,
     FbiErrorComponent,
-    FbiHomeComponent
+    FbiHomeComponent,
+    FBISideNav,
   ],
   imports: [
     BrowserModule,

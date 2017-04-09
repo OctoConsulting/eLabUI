@@ -3,7 +3,7 @@ import { FbiCasePage } from './fbi-case.page';
 
 export const routes: Routes = [
   {
-    path: 'case',
+    path: '',
     component: FbiCasePage,
   },
 ];
