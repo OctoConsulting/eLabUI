@@ -1,0 +1,40 @@
+.heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 1.5em;
+  background: #F1F1F1;
+  border-width: thin;
+}
+.table-heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 0.7em;
+  border-width: thin;
+}
+.btn-place{
+  font-size: 1.8em;
+  padding-left: 0.6em;
+  color : #2196f3;
+  cursor: pointer;
+}
+.icon{
+  font-size : 0.8em;
+}
+
+.table-content{
+  font-weight: 300;
+}
+
+.bg-grey{
+  background: #F1F1F1;
+}
+.p-L-2em{
+  padding-left : 2.5em;
+}
+.p-L-3em{
+  padding-left : 3.5em;
+}
+.check{
+  padding-top: 0.6em;
+  padding-left: 2.5em;
+}

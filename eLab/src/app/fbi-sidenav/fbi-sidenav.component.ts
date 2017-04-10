@@ -7,11 +7,17 @@ import {Component,OnInit} from '@angular/core';
 })
 export class FBISideNav implements OnInit{
 
+  path : 'details' | 'files' = 'details';
   constructor(){
 
   }
 
   ngOnInit(){
 
+  }
+
+  OnClick(event){
+    this.path = event;
+    //console.log(event);
   }
 }

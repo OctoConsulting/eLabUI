@@ -1,4 +1,4 @@
 <div class = "sidenav">
-  <h4 class = "p-1em">Case Studies</h4>
-  <h4 class = "p-1em">Case Files</h4>
+  <div><h4 class = "p-1em" [ngClass] = "path === 'details' ? 'picked' : 'unpicked'"  (click) = "OnClick('details')">Case Studies</h4></div>
+  <h4 class = "p-1em" [ngClass] = "path === 'files' ? 'picked' : 'unpicked'" (click) = "OnClick('files')">Case Files</h4>
 <div>

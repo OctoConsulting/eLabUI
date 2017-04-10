@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { routing } from './fbi-case.routes';
 import { FbiCasePage } from './fbi-case.page';
+import { FBITable } from './fbi-table/fbi-table.component';
+import { FBIExamTable } from './fbi-exam-table/fbi-exam-table.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { FbiCasePage } from './fbi-case.page';
   ],
   declarations:[
     FbiCasePage,
-    
+    FBITable,
+    FBIExamTable,
   ],
   providers: [
 

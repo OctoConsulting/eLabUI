@@ -1,10 +1,17 @@
 .sidenav {
   height: 100%;
-  background-color: #e0e0e0;
+  background-color: #DCDCDC;
   overflow-x: hidden;
   min-height: 67.5em;
 }
 .p-1em{
   padding-top: 1em;
   padding-left: 0.5em;
+  cursor: pointer; 
+}
+.picked{
+  color : white;
+}
+.unpicked{
+  color : black;
 }
