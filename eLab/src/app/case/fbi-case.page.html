@@ -1,14 +1,74 @@
-<div class = "row " style="padding-top: 2em;">
-  <div class= "col-sm-4"></div>
-  <div class = "col-sm-7 main_sec">
-    <div class = "col-sm-6">
-      <h3>Lab No: {{casedata.Lab_no}}</h3>
-      <h3>Date Opened : {{casedata.Date_Opened}}</h3>
-      <h3>Violation Date: {{casedata.Violation_Date}}</h3>
+<div class = "col-xs-12 col-sm-12 col-md-12">
+  <div class = "row">
+    <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+      <h3 class = "head-align">Case Details</h3>
     </div>
-    <div class = "col-sm-6">
-      <h3>Status: {{casedata.Status}}</h3>
-      <h3>Violation No: {{casedata.Violation}}</h3>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+      <div class= "col-xs-12 col-sm-6 col-md-6">
+        <div class = "col-xs-12 col-sm-7 col-md-7">
+          <h4 class = "pl-05em">Lab #</h4>
+        </div>
+        <div class = "col-xs-12 col-sm-5 col-md-5">
+          <h4 class = "res pl-05em">{{casedata.Lab_no}}</h4>
+        </div>
+      </div>
+      <div class= "col-xs-12 col-sm-6 col-md-6">
+        <div class = "col-xs-12 col-sm-6 col-md-6">
+          <h4 class = "pl-05em">Status</h4>
+        </div>
+        <div class = "col-xs-12 col-sm-6 col-md-6">
+          <h4 class = "res pl-05em">{{casedata.Status}}</h4>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+      <div class= "col-xs-12 col-sm-12 col-md-12">
+        <div class = "col-xs-12 col-sm-4 col-md-4">
+          <h4 class = "pl-05em">Date/Time Opened</h4>
+        </div>
+        <div class = "col-xs-12 col-sm-8 col-md-8">
+          <h4 class = "res pl-05em ">{{formatDate(casedata.Date_Opened)}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+      <div class= "col-xs-12 col-sm-12 col-md-12">
+        <div class = "col-xs-12 col-sm-4 col-md-4">
+          <h4 class = "pl-05em">Violation</h4>
+        </div>
+        <div class = "col-xs-12 col-sm-8 col-md-8">
+          <h4 class = "res pl-05em">{{casedata.Violation}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+      <div class= "col-xs-12 col-sm-12 col-md-12">
+        <div class = "col-xs-12 col-sm-4 col-md-4">
+          <h4 class = "pl-05em">Violation Date/Time</h4>
+        </div>
+        <div class = "col-xs-12 col-sm-8 col-md-8">
+          <h4 class = "res pl-05em">{{formatDate(casedata.Violation_Date)}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "col-xs-12 col-sm-12 col-md-12 p-T-6em">
+    <fbi-table></fbi-table>
+  </div>
+  <div class = "col-xs-12 col-sm-12 col-md-12 p-T-6em">
+    <fbi-exam-table></fbi-exam-table>
   </div>
 </div>

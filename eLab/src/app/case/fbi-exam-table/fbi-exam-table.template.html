@@ -1,0 +1,47 @@
+<div class = "col-xs-12 col-sm-12 col-md-12 p-B-16em">
+  <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+  <div class="col-xs-10 col-sm-8 col-md-8">
+    <div class = "col-xs-12 col-sm-12 col-md-12 heading">
+      <h4>{{heading.tableHeading}}</h4>
+    </div>
+    <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
+      <div class = "col-xs-12 col-sm-2 col-md-2">
+        <h5>Type</h5>
+      </div>
+      <div class = "col-xs-12 col-sm-2 col-md-2">
+        <h5>Name</h5>
+      </div>
+      <div class = "col-xs-12 col-sm-2 col-md-2">
+        <h5>Examiner</h5>
+      </div>
+      <div class = "col-xs-12 col-sm-3 col-md-3">
+        <h5>Start Date/Time</h5>
+      </div>
+      <div class = "col-xs-12 col-sm-3 col-md-3">
+        <h5>Completed Date/Time</h5>
+      </div>
+    </div>
+    <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
+      <div class = "btn-place" routerLink="../exam"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
+    </div>
+    <div *ngFor = "let content of data">
+      <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''">
+        <div class = "col-xs-12 col-sm-2 col-md-2">
+          <h5 class = "table-content">{{content.Type}}</h5>
+        </div>
+        <div class = "col-xs-12 col-sm-2 col-md-2">
+          <h5 class = "table-content">{{content.Name}}</h5>
+        </div>
+        <div class = "col-xs-12 col-sm-2 col-md-2">
+          <h5 class = "table-content">{{content.Examiner}}</h5>
+        </div>
+        <div class = "col-xs-12 col-sm-3 col-md-3">
+          <h5 class = "table-content">{{formatDate(content.Start)}}</h5>
+        </div>
+        <div class = "col-xs-12 col-sm-3 col-md-3">
+          <h5 class = "table-content">{{formatDate(content.Completed)}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

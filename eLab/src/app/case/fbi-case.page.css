@@ -1,4 +1,30 @@
-.main_sec{
-  background-color: gainsboro;
-  box-shadow: 10px 10px 5px grey;
+.cnt-align{
+  margin-right: 10em;
+  margin-left: 10em;
+}
+.head-align{
+  padding: 1em;
+  border-bottom: silver;
+  border-bottom-style: solid;
+}
+.res{
+  font-weight: 200;
+}
+
+.p_T-2em{
+  padding-top: 2em;
+}
+.p-0em{
+  padding: 0em;
+}
+
+.pl-05em{
+  padding-left: 0.3em;
+}
+
+.p-L-1em{
+  padding-left: 1.3em;
+}
+.p-T-6em{
+  padding-top : 6em;
 }
