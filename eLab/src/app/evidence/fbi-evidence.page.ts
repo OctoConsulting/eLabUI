@@ -13,7 +13,7 @@ export class FbiEvidencePage implements OnInit {
 
   ngOnInit(){
     this.evidenceData = {
-      page_title: 'Evidence - View/Edit',
+      new_page_title: 'Evidence - New',
       name: 'Write Evidence Name Here',
       number: 1,
       for_analysis: false,
