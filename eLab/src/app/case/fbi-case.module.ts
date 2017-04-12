@@ -7,6 +7,8 @@ import { routing } from './fbi-case.routes';
 import { FbiCasePage } from './fbi-case.page';
 import { FBITable } from './fbi-table/fbi-table.component';
 import { FBIExamTable } from './fbi-exam-table/fbi-exam-table.component';
+import { WrapperService } from '../api-kit/wrapper.service';
+import { FbiCaseService } from '../api-kit/case/fbi-case.service';
 
 @NgModule({
   imports: [
@@ -25,7 +27,8 @@ import { FBIExamTable } from './fbi-exam-table/fbi-exam-table.component';
     FBIExamTable,
   ],
   providers: [
-
+    WrapperService,
+    FbiCaseService,
   ]
 })
 export class FbiCaseModule {

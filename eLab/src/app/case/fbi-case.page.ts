@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment-timezone';
+import { FbiCaseService } from '../api-kit/case/fbi-case.service';
 
 @Component({
   selector: 'fbi-case',
@@ -8,7 +9,7 @@ import * as moment from 'moment-timezone';
 })
 export class FbiCasePage implements OnInit{
   casedata;
-  constructor(){
+  constructor(private cs : FbiCaseService){
 
   }
 
@@ -20,6 +21,10 @@ export class FbiCasePage implements OnInit{
       Violation:  'No',
       Violation_Date: '2017-07-15T18:26:00.000-0400'
     };
+
+    this.cs.getValues(2,2).subscribe(res => {
+      console.log(res);
+    });
     //console.log(moment("2021-07-25T21:41:00.000-0400").format("MMM DD, YYYY HH:mm Z"));
 
   }
