@@ -4,3 +4,6 @@
 .p-l-0em{
   padding-left: 0em;
 }
+.flex-dp{
+  display: flex;
+}
