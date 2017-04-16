@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { routing } from './fbi-exam.routes';
-import {FBIExamPage} from './fbi-exam.component';
+import { FBIExamPage } from './fbi-exam.component';
+import { EvidenceTable } from './evidence-table/evidence-table.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {FBIExamPage} from './fbi-exam.component';
 
   ],
   declarations:[
-    FBIExamPage
+    FBIExamPage,
+    EvidenceTable
   ],
   providers: [
     
