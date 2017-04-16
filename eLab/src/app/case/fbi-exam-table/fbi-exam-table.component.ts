@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import * as moment from 'moment-timezone';
 
 @Component({
@@ -10,7 +11,7 @@ export class FBIExamTable implements OnInit{
   heading;
   data;
   flag = false;
-  constructor(){
+  constructor(private router : Router, private route : ActivatedRoute){
 
   }
 
@@ -50,4 +51,14 @@ export class FBIExamTable implements OnInit{
     return this.flag;
   }
     
+   examClicked(event){
+     let id = 1;
+     this.router.navigate(['./exam/new']);
+     window.scrollTo(0,0);
+   } 
+
+   viewExam(event){
+     this.router.navigate(['./exam/view',event]);
+     window.scrollTo(0,0);
+   }
 }
