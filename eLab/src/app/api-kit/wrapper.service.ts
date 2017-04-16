@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 export class WrapperService {
     private APIs: any = {
 
-        "alerts": "/alert/v2/alerts",
-        "allAlerts": "/alert/v2/alerts/allAlerts",
+        "case": "/elab/v1/cases",
+        
 
     };
 

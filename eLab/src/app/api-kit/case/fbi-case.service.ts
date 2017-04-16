@@ -9,18 +9,15 @@ export class FbiCaseService {
 
   }
 
-  getValues(limit?: number, offset?: number){
+  getCaseDetails(id:number){
     //return 'test';
     let apiOptions: any = {
-      name: 'alerts',
-      suffix: '',
+      name: 'case',
+      suffix: '/' + id + '/',
       method: 'GET',
       oParam: { }
     };
-
-    // specify defaults
-    apiOptions.oParam.limit = limit || 5;
-    apiOptions.oParam.offset = offset || 0;
+    // specify defaults   
 
     return this.apiService.call(apiOptions);
 

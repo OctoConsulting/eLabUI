@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,Input} from '@angular/core';
 
 @Component({
   selector: 'fbi-table',
@@ -9,6 +9,8 @@ export class FBITable implements OnInit{
   flag = false;
   tabData;
   checked : any = [];
+
+  @Input() evidenceContainer;
 
   heading:{
     tableHeading : string,
@@ -21,12 +23,13 @@ export class FBITable implements OnInit{
   }
 
   ngOnInit(){
+    
     this.heading = {
       tableHeading : 'Evidence',
       mainHeading : ['Type', 'Number', 'Name','For Analysis'],
       addButton : 'Create Evidence',
     };
-    this.tabData = {
+    /*this.tabData = {
       container : [
         {
           type : 'Container',
@@ -81,23 +84,42 @@ export class FBITable implements OnInit{
           ]
         }
       ]
-    };
+    };*/
 
     //console.log(this.tabData.container[0].type);
   }
 
   checkFlag(){
     this.flag = !this.flag;
-    return this.flag;
+    return this.flag;    
+  }
+
+  checkEvidenceType(type : number){
+    if(type === 1)
+      return "Container";
+    else if(type === 2)
+      return "Package";
+    else  
+      return "Item";
   }
 
   OnChange(event){
+    // this.checked = [];
+    // this.tabData.container.forEach(cont => {
+    //   cont.package.forEach( pk => {
+    //     pk.item.forEach(it => {
+    //       if(it.forAnalysis === true)
+    //         this.checked.push(it.number);
+    //     });
+    //   });
+    // });
+    console.log("Clicked");
     this.checked = [];
-    this.tabData.container.forEach(cont => {
-      cont.package.forEach( pk => {
-        pk.item.forEach(it => {
-          if(it.forAnalysis === true)
-            this.checked.push(it.number);
+    this.evidenceContainer.forEach(con =>{
+      con.packages.forEach( pk =>{
+        pk.items.forEach(it => {
+          if(it.isForAnalysis === true)
+            this.checked.push(it.id);
         });
       });
     });

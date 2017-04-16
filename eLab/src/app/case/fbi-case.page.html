@@ -34,7 +34,7 @@
           <h4 class = "pl-05em">Date/Time Opened</h4>
         </div>
         <div class = "col-xs-12 col-sm-8 col-md-8">
-          <h4 class = "res pl-05em ">{{formatDate(casedata.Date_Opened)}}</h4>
+          <h4 class = "res pl-05em ">{{formatDate(casedata.Date_Opened)}} EST</h4>
         </div>
       </div>
     </div>
@@ -60,13 +60,13 @@
           <h4 class = "pl-05em">Violation Date/Time</h4>
         </div>
         <div class = "col-xs-12 col-sm-8 col-md-8">
-          <h4 class = "res pl-05em">{{formatDate(casedata.Violation_Date)}}</h4>
+          <h4 class = "res pl-05em">{{formatDate(casedata.Violation_Date)}} EST</h4>
         </div>
       </div>
     </div>
   </div>
   <div class = "col-xs-12 col-sm-12 col-md-12 p-T-6em">
-    <fbi-table></fbi-table>
+    <fbi-table [evidenceContainer] = "casedata.container"></fbi-table>
   </div>
   <div class = "col-xs-12 col-sm-12 col-md-12 p-T-6em">
     <fbi-exam-table></fbi-exam-table>

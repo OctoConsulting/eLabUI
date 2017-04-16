@@ -1,0 +1,22 @@
+.head-align{
+  padding: 1em;
+  border-bottom: silver;
+  border-bottom-style: solid;
+}
+.pd-L-4em{
+    padding-left: 4em;
+}
+.tx-align{
+    text-align: right;
+}
+.p-2t{
+   padding-bottom: 0.2em;
+   padding-top: 0.2em; 
+}
+.p-6t{
+    padding-left: 0.6em;
+}
+
+.p-3t{
+    padding-top: 3em;
+}

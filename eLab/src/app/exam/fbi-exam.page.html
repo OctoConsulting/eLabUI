@@ -1,1 +1,121 @@
-<h1>FBI Exam Page</h1>
+<div class = "col-xs-12 col-sm-12 col-md-12">
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-10 col-sm-8 col-md-8">
+            <h3 class = "head-align">Examination - New</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Name *</h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7">   
+                <div class = "form-group" [ngClass] = "nameError ? 'has-error' : ''">
+                    <div *ngIf = "nameError === true"><label class="control-label" for="inputError">Please enter a Examination Name</label></div>
+                    <input type="text" class="form-control" id="inputError" [value]="NameInput" (change)="onInputChange($event.target.value)" [attr.placeholder] = "'Enter Name'">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Type *</h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7">
+                <div>
+                    <select class="form-control" #select (change)="onSelectChange(select.value)" [(ngModel)]="selectModel">
+                        <option *ngFor = "let option of examType" [value]="option.value">{{option.label}}</option>                        
+                    </select>
+                </div>    
+            </div>    
+        </div>    
+    </div>
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Examiners *</h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7">
+                <div>
+                    <select class="form-control" #select1 (change)="onExaminerChange(select1.value)" [(ngModel)]="examinerModel">
+                        <option *ngFor = "let option of examiners" [value]="option.value">{{option.label}}</option>                        
+                    </select>
+                </div>    
+            </div>    
+        </div>    
+    </div>
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Assigned Date *</h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7 ">
+                <div [ngClass] = "assignDateError ? 'has-error' : ''" >
+                    <div *ngIf = "assignDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2  [(ngModel)] = "assignDate.month" [attr.placeholder] = "'MM'">
+                    </div>  
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2 [(ngModel)] = "assignDate.date" [attr.placeholder] = "'DD'">
+                    </div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 4 [(ngModel)] = "assignDate.year" [attr.placeholder] = "'YYYY'">
+                    </div>
+                </div>    
+            </div>    
+        </div>    
+    </div>
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Start Date *</h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7 ">
+                <div (change) = "test()" [ngClass] = "startDateError ? 'has-error' : ''" >
+                    <div *ngIf = "startDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2  [(ngModel)] = "startDate.month" [attr.placeholder] = "'MM'">
+                    </div>  
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2 [(ngModel)] = "startDate.date" [attr.placeholder] = "'DD'">
+                    </div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 4 [(ngModel)] = "startDate.year" [attr.placeholder] = "'YYYY'">
+                    </div>
+                </div>    
+            </div>    
+        </div>    
+    </div>
+    <div class = "row">
+        <div class = "col-xs-1 col-sm-2 col-md-2"></div>
+        <div class = "col-xs-11 col-sm-8 col-md-8 pd-L-4em">
+            <div class = "col-xs-12 col-sm-3 col-md-3 tx-align">
+                <h4>Completed Date </h4>                
+            </div>
+            <div class = "col-xs-12 col-sm-7 col-md-7 ">
+                <div (change) = "test()" [ngClass] = "completedDateError ? 'has-error' : ''" >
+                    <div *ngIf = "completedDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2  [(ngModel)] = "completedDate.month" [attr.placeholder] = "'MM'">
+                    </div>  
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 2 [(ngModel)] = "completedDate.date" [attr.placeholder] = "'DD'">
+                    </div>
+                    <div class = "col-xs-2 col-sm-2 col-md-2">
+                        <input type="text" class="form-control p-6t" maxlength = 4 [(ngModel)] = "completedDate.year" [attr.placeholder] = "'YYYY'">
+                    </div>
+                </div>    
+            </div>    
+        </div>    
+    </div> 
+    <div class = "p-3t">
+        <evidence-table></evidence-table> 
+    </div>                  
+</div>    
