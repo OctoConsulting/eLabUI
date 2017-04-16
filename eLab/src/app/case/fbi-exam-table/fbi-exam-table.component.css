@@ -29,3 +29,6 @@
 .bg-grey{
   background: #F1F1F1;
 }
+.cr-point{
+  cursor: pointer;
+}

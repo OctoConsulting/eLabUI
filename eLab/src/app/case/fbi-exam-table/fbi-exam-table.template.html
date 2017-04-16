@@ -22,10 +22,10 @@
       </div>
     </div>
     <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
-      <div class = "btn-place" routerLink="../exam"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
+      <div class = "btn-place" (click) = "examClicked($event)" ><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
     </div>
     <div *ngFor = "let content of data">
-      <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''">
+      <div class= "col-xs-12 col-sm-12 col-md-12 table-heading cr-point" [ngClass] = "checkFlag() ? 'bg-grey' : ''" (click) = "viewExam(1)">
         <div class = "col-xs-12 col-sm-2 col-md-2">
           <h5 class = "table-content">{{content.Type}}</h5>
         </div>

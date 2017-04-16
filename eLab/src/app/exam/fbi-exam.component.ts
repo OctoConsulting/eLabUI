@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import * as moment from 'moment-timezone';
 
 @Component({
@@ -7,6 +8,7 @@ import * as moment from 'moment-timezone';
     styleUrls : ["./fbi-exam.component.css"]
 })
 export class FBIExamPage implements OnInit{
+    mode : 'view' | 'edit' = 'edit';
 
     nameError : boolean = false;
     NameInput : string = '';
@@ -23,13 +25,22 @@ export class FBIExamPage implements OnInit{
     startDateError: boolean = false;
 
     completedDate = {date : '', month : '', year : '', hours : '',  mins : '', zone : ''};
-    completedDateError : boolean = false
-    constructor(){
+    completedDateError : boolean = false;
+
+    constructor(private router: Router, private route : ActivatedRoute){
 
     }
 
     ngOnInit(){
-        
+        console.log(this.router.url);
+
+        this.determineMode();
+
+        this.route.params.subscribe(param => {
+            let id = param['id'];
+            console.log(id);
+        })
+
         this.examType = [
             {label : "Shoe Prints/Tire Tread", value : "Shoe Prints/Tire Tread"},
             {label : "Chemistry - Toxicology", value : "Chemistry - Toxicology"},
@@ -63,6 +74,14 @@ export class FBIExamPage implements OnInit{
             zone : moment().format('Z')
         }             
     }
+
+    determineMode(){
+        if(/\/view/.test(this.router.url)) {
+            this.mode = 'view';
+        }
+        console.log(this.mode);
+    }
+
     onInputChange(event){
         console.log(event);
     }

@@ -4,7 +4,10 @@ import { FBIExamPage } from './fbi-exam.component';
 export const routes: Routes = [
   {
     path: 'exam',
-    component: FBIExamPage,
+    children : [
+      { path : 'new', component : FBIExamPage},
+      { path : 'view/:id', component : FBIExamPage }
+    ]
   },
 ];
 
