@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
-      <div class = "btn-place" routerLink="../evidence"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
+      <div class = "btn-place" routerLink="../evidence/new"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
     </div>
     <div *ngFor = "let content of evidenceContainer">
       <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''" >

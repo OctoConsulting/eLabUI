@@ -4,7 +4,10 @@ import { FbiEvidencePage } from './fbi-evidence.page';
 export const routes: Routes = [
   {
     path: 'evidence',
-    component: FbiEvidencePage,
+    children: [
+      { path : 'new', component: FbiEvidencePage},
+      { path : 'view/:id', component : FbiEvidencePage }
+    ]
   },
 ];
 

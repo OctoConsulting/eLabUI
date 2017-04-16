@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./fbi-evidence.page.css']
 })
 export class FbiEvidencePage implements OnInit {
+  mode: 'view' | 'edit' = 'edit';
+
   evidenceData;
   constructor(){
 
