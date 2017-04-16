@@ -1,12 +1,12 @@
 import { Routes, RouterModule } from '@angular/router';
-import { FBIEvidencePage } from './fbi-evidence.page';
+import { FbiEvidencePage } from './fbi-evidence.page';
 
 export const routes: Routes = [
   {
     path: 'evidence',
     children: [
-      { path : 'new', component: FBIEvidencePage},
-      { path : 'view/:id', component : FBIEvidencePage }
+      { path : 'new', component: FbiEvidencePage},
+      { path : 'view/:id', component : FbiEvidencePage }
     ]
   },
 ];

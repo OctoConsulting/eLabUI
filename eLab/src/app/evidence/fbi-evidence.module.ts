@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { FBIEvidencePage } from './fbi-evidence.page';
+import { FbiEvidencePage } from './fbi-evidence.page';
 import { routing } from './fbi-evidence.routes';
 
 @NgModule({
@@ -18,13 +18,13 @@ import { routing } from './fbi-evidence.routes';
 
   ],
   declarations:[
-    FBIEvidencePage,
+    FbiEvidencePage,
 
   ],
   providers: [
 
   ]
 })
-export class FBIEvidenceModule{
+export class FbiEvidenceModule{
 
 }
