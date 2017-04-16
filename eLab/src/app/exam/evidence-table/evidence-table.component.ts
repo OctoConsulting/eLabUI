@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,OnInit,Input} from '@angular/core';
 
 
 @Component({
@@ -8,11 +8,16 @@ import {Component,OnInit} from '@angular/core';
 })
 export class EvidenceTable implements OnInit{
 
+    @Input() mode : 'view' | 'edit' = 'edit'; 
+
     heading = {
         tableHeading : 'Evidence',
         headings : ["Select","Item Number", "Item Name" ]
     };
     evidenceDetails;
+
+    flag : boolean = false;
+
     constructor(){
 
     }
@@ -40,5 +45,21 @@ export class EvidenceTable implements OnInit{
                 itemName : "Item Name 4"
             }
         ]
+    }
+
+    checkFlag(){
+        this.flag = !this.flag;
+        return this.flag;
+    }
+
+    OnSelected(){
+        //console.log("checked");
+        let checked = [];
+        this.evidenceDetails.forEach( ev => {
+            if(ev.selected === true){
+                checked.push(ev.itemId);
+            }
+        });
+        console.log(checked);
     }
 }

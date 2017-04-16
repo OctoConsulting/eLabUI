@@ -9,6 +9,7 @@ import * as moment from 'moment-timezone';
 })
 export class FBIExamPage implements OnInit{
     mode : 'view' | 'edit' = 'edit';
+    path : 'new' | 'view' = 'view'; 
 
     nameError : boolean = false;
     NameInput : string = '';
@@ -35,6 +36,7 @@ export class FBIExamPage implements OnInit{
         console.log(this.router.url);
 
         this.determineMode();
+        this.determinePath();
 
         this.route.params.subscribe(param => {
             let id = param['id'];
@@ -78,8 +80,13 @@ export class FBIExamPage implements OnInit{
     determineMode(){
         if(/\/view/.test(this.router.url)) {
             this.mode = 'view';
-        }
-        console.log(this.mode);
+        }        
+    }
+
+    determinePath(){
+       if(/\/new/.test(this.router.url)) {
+            this.path = 'new';
+        }        
     }
 
     onInputChange(event){
@@ -130,5 +137,10 @@ export class FBIExamPage implements OnInit{
         else{
             this.nameError = false;
         }
+    }
+
+    onEdit(){
+        this.mode = 'edit';
+        window.scrollTo(0,0);
     }
 }

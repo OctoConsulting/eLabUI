@@ -20,3 +20,12 @@
 .p-3t{
     padding-top: 3em;
 }
+.ed{
+    font-size: 1.5em;
+    color: #2196f3;
+    cursor: pointer;
+    padding-left: 59em;
+}
+.ft-300{
+    font-weight: 300;
+}
