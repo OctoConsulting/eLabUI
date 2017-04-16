@@ -19,9 +19,9 @@
     <div *ngFor = "let detail of evidenceDetails">
         <div class = "row">
             <div class = "col-xs-1 col-sm-2 col-md-2"></div>
-            <div class = "col-xs-10 col-sm-8 col-md-8 table-heading">
+            <div class = "col-xs-10 col-sm-8 col-md-8 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''">
                 <div class = "col-xs-12 col-sm-3 col-md-3 pd-1e">
-                    <input type="checkbox" name="item-check" [(ngModel)] = "detail.selected" />
+                    <input type="checkbox" name="item-check" [(ngModel)] = "detail.selected" (change) = "OnSelected()" [disabled] = "mode === 'view'" />
                 </div>
                 <div class = "col-xs-12 col-sm-3 col-md-3 ">
                     <h5 class="table-content pd-l-1em">{{detail.itemId}}</h5>
