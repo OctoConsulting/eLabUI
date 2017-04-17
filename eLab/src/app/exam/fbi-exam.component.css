@@ -29,3 +29,16 @@
 .ft-300{
     font-weight: 300;
 }
+.p-3b{
+    padding-bottom: 3em;
+}
+.bt-width{
+    width: 10em;
+}
+.p-1t{
+    padding-top: 1em;
+    cursor: pointer;
+}
+.ft-15{
+    font-size: 1.5em;
+}
