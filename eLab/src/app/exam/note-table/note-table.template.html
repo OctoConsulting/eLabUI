@@ -1,0 +1,44 @@
+<div>
+    <div class="col-xs-1 col-sm-2 col-md-2 nl-sp"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8 box-align">
+        <div class="col-xs-12 col-sm-12 col-md-12 heading">
+            <h4>Notes</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Type</h5>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h5>Name</h5>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="btn-place"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Shoe Note</span></div>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="btn-place"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Tire Note</span></div>
+            </div>
+        </div>
+        <div *ngFor="let note of noteDetails">
+            <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>{{note.type}}</h5>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                    <h5>{{note.name}}</h5>
+                </div>
+            </div>
+            <div *ngFor="let dt of note.subtype">
+                <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>{{dt.type}}</h5>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <h5>{{dt.name}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

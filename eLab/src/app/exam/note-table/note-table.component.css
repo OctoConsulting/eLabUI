@@ -1,0 +1,35 @@
+.heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 1.5em;
+  background: #F1F1F1;
+  border-width: thin;
+}
+.table-heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 0.7em;
+  border-width: thin;
+}
+.table-content{
+  font-weight: 300;
+}
+
+.bg-grey{
+  background: #F1F1F1;
+}
+.icon{
+  font-size : 0.8em;
+}
+.btn-place{
+  font-size: 1.8em;
+  padding-left: 0.6em;
+  color : #2196f3;
+  cursor: pointer;
+}
+.nl-sp{
+    width: 15.4%;
+}
+.box-align{
+    width: 68.8%;
+}
