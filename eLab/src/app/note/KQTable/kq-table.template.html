@@ -1,0 +1,33 @@
+<div>
+    <div class="col-xs-1 col-sm-2 col-md-2 nl-sp"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8 box-align">
+        <div class="col-xs-12 col-sm-12 col-md-12 heading">
+            <h4>Notes</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Type</h5>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h5>Name</h5>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="btn-place" (click) = "createKnown()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Known Detail</span></div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="btn-place" (click) = "createQuestion()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Question Detail</span></div>
+            </div>
+        </div>
+        <div *ngFor = "let content of tableContent">
+        <div class="col-xs-12 col-sm-12 col-sm-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5 class = "table-content">{{content.type}}</h5>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <h5 class = "table-content">{{content.desc}}</h5>
+            </div>    
+        </div>    
+    </div>        
+</div>

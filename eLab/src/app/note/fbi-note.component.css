@@ -1,0 +1,48 @@
+.head-align{
+  padding: 1em;
+  border-bottom: silver;
+  border-bottom-style: solid;
+}
+.ed{
+    font-size: 1.5em;
+    color: #2196f3;
+    cursor: pointer;
+    padding-left: 59em;
+}
+.pd-L-4em{
+    padding-left: 4em;
+}
+.tx-align{
+    text-align: right;
+}
+.ft-sz{
+    font-size: large;
+}
+.p-6t{
+    padding-left: 0.6em;
+}
+.p-3t{
+    padding-top : 3em;
+}
+.nl-sp{
+    width: 12.8%;
+}
+.box-align{
+    width: 71.9%;
+}
+.bt-width{
+    width: 10em;
+}
+.p-1t{
+    padding-top: 1em;
+    cursor: pointer;
+}
+.ft-15{
+    font-size: 1.5em;
+}
+.p-3b{
+    padding-bottom: 3em;
+}
+.nl-sp1{
+    width: 15.5%;
+}

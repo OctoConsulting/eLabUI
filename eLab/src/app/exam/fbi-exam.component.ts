@@ -146,8 +146,10 @@ export class FBIExamPage implements OnInit {
     }
 
     onEdit() {
+        console.log("Here");
         this.mode = 'edit';
         window.scrollTo(0, 0);
+        console.log(this.mode);
     }
 
     OnSave() {

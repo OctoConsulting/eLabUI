@@ -14,6 +14,8 @@ import { FbiCaseModule } from './case/fbi-case.module';
 import { FbiEvidenceModule } from './evidence/fbi-evidence.module';
 import { FBISideNav } from './fbi-sidenav/fbi-sidenav.component';
 import { FbiExamModule } from './exam/fbi-exam.module';
+import { FbiNotesModule } from './note/fbi-note.module';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,12 @@ import { FbiExamModule } from './exam/fbi-exam.module';
     HttpModule,
     Angular2FontAwesomeModule,
     RouterModule.forRoot(ROUTES),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
     FbiCaseModule,
     FbiEvidenceModule,
-    FbiExamModule
+    FbiExamModule,
+    FbiNotesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

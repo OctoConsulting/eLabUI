@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector : 'note-table',
@@ -8,7 +9,9 @@ import {Component,OnInit} from '@angular/core';
 export class NoteTable implements OnInit{
     
     noteDetails;
-    constructor(){
+    flag : boolean = true;
+
+    constructor(private router: Router, private route: ActivatedRoute){
 
     }
 
@@ -32,6 +35,19 @@ export class NoteTable implements OnInit{
         ]
     }
 
+    createShoe(){
+        this.router.navigate(['./notes/shoe/new']);
+        window.scrollTo(0,0);
+    }
     
+    createTire(){
+        this.router.navigate(['./notes/tire/new']);
+        window.scrollTo(0,0);
+    }
+
+    checkFlag(){
+        this.flag = !this.flag;
+        return this.flag;
+    }
 
 }
