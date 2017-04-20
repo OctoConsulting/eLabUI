@@ -14,10 +14,10 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
             <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="btn-place"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Shoe Note</span></div>
+                <div class="btn-place" (click) = "shoeNote()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Shoe Note</span></div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="btn-place"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Tire Note</span></div>
+                <div class="btn-place" (click) = "tireNote()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Tire Note</span></div>
             </div>
         </div>
         <div *ngFor="let note of noteDetails">

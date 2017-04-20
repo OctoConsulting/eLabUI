@@ -1,0 +1,14 @@
+.head-align{
+  padding: 1em;
+  border-bottom: silver;
+  border-bottom-style: solid;
+}
+.pd-L-4em{
+    padding-left: 4em;
+}
+.tx-align{
+    text-align: right;
+}
+.sel-wid{
+    width: 100%;
+}
