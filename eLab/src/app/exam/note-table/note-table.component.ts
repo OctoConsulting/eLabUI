@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector : 'note-table',
@@ -8,7 +9,7 @@ import {Component,OnInit} from '@angular/core';
 export class NoteTable implements OnInit{
     
     noteDetails;
-    constructor(){
+    constructor(private router: Router, private route: ActivatedRoute){
 
     }
 
@@ -32,6 +33,12 @@ export class NoteTable implements OnInit{
         ]
     }
 
+    shoeNote(){
+        this.router.navigate(['./notes/shoe/new']);
+    }
     
+    tireNote(){
+        this.router.navigate(['./notes/tire/new']);
+    }
 
 }
