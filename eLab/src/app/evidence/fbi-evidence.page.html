@@ -5,12 +5,15 @@
             <h3 class="head-align">Evidence - {{path === 'new' ? 'New' : 'View/Edit'}}</h3>
         </div>
     </div>
-    <! -- Number and Evidence Type -->
+    <! -- Evidence Number -->
+    <! -- Evidence Number To Go Here on View Page -->
+    <!-- End Evidence Number -->
+    <! -- Evidence Type -->
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
             <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
-                <h4>Type *</h4>
+                <h4>Type</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
                 <div class="form-group">
@@ -24,13 +27,13 @@
             </div>
         </div>
     </div>
-    <!-- End Number and Evidence Type -->
+    <!-- End Evidence Type -->
     <!-- Parent Type -->
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
             <div class="col-xs-6 col-sm-3 col-md-3 tx-align">
-              <h4>Parent Type *</h4>
+              <h4>Parent Type</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
               <select class='form-control' id='evidence_parent' maxlength=20>
@@ -45,7 +48,7 @@
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
             <div class="col-xs-6 col-sm-3 col-md-3 tx-align">
-              <h4>Parent Evidence # *</h4>
+              <h4>Parent Evidence #</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
               <input type = 'text' class='form-control' id='evidence_parent_number_field' placeholder='Begin Typing Here' size= '10' value={{evidenceData.evidence_parent_number}}>  
@@ -58,7 +61,7 @@
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
             <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
-                <h4>Name *</h4>
+                <h4>Name</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
               <input type='text' class='form-control' id='evidence_input_field' placeholder='Begin typing here...' value={{evidenceData.name}}>
@@ -71,7 +74,7 @@
       <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
-              <h4>For Analysis *</h4>
+              <h4>For Analysis</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
                <input id='evidence_analysis' type='checkbox' value={{evidenceData.for_analysis}>
@@ -83,12 +86,12 @@
     <div class="row">
       <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-           <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="col-xs-12 col-sm-7 col-md-7">
              <button class='btn btn-primary'>Save</button>
              <button class='btn btn-danger'>Cancel</button>
              <br>
-             <label for='create_another'>Create Another</label>
-             <input id='create_another' type='checkbox' value={{evidenceData.create_another}}>
+             <br>
+             <button class='btn btn-default' id='create_another'>Create Another</button>
            </div>
         </div>
     </div>
