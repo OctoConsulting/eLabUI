@@ -29,6 +29,10 @@
     padding-left: 1.3em;
 }
 
+.pd-L-4em {
+    padding-left: 4em;
+}
+
 .p-T-6em {
     padding-top: 6em;
 }
@@ -40,6 +44,10 @@
 
 .bold {
   font-weight:bold;
+}
+
+.tx-align{
+    text-align: right;
 }
 
 .main_sec {
