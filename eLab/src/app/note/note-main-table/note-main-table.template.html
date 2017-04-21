@@ -1,0 +1,29 @@
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+        <div class="col-xs-12 col-sm-12 col-md-12 heading">
+            <h4>Notes</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+            <div class="btn-group pd-tb-05" [ngClass] = "dropDownFlag === true ? 'open' : ''">
+                <a  class="btn btn-primary">Create Details</a>
+                <a  class="btn btn-primary dropdown-toggle" (click) = "dropDown()" aria-expanded="true"><span class="caret"></span></a>
+                <ul class="dropdown-menu" *ngIf = "dropDownFlag === true">
+                    <li (click) = "onKDetail()"><a>Known Details</a></li>
+                    <li (click) = "onQDetail()"><a>Question Details</a></li>                                        
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Type</h5>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <h5>Description</h5>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+
+        </div>
+    </div>
+</div>
