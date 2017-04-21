@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import * as moment from 'moment-timezone';
+import * as $ from 'jquery';
 
 @Component({
     selector : 'fbi-note',
