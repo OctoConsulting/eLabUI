@@ -15,7 +15,20 @@ export class NoteMainTable implements OnInit{
     }
 
     ngOnInit(){
-        
+        this.tableContent = [
+            {
+                type : "Known",
+                desc : "Description provided for known"
+            },
+            {
+                type : "Question",
+                desc : "Describing the item selected for exam"
+            },
+            {
+                type : "Question",
+                desc : "Describing the item selected for exam"
+            }
+        ]
     }
 
     dropDown(){
