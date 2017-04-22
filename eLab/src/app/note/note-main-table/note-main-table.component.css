@@ -15,3 +15,9 @@
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
+.bgcol{
+  background: #F1F1F1;
+}
+.table-content{
+  font-weight: 300;
+}

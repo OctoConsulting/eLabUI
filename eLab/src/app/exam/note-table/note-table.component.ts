@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class NoteTable implements OnInit{
     
     noteDetails;
+    dropDownFlag : boolean = false;
+    
     constructor(private router: Router, private route: ActivatedRoute){
 
     }
@@ -34,11 +36,19 @@ export class NoteTable implements OnInit{
     }
 
     shoeNote(){
+        this.dropDownFlag = false;
         this.router.navigate(['./notes/shoe/new']);
     }
     
     tireNote(){
+        this.dropDownFlag = false;
         this.router.navigate(['./notes/tire/new']);
     }
+
+    dropDown(){
+        this.dropDownFlag = !this.dropDownFlag;
+    }
+
+    
 
 }

@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import * as moment from 'moment-timezone';
 import * as $ from 'jquery';
+import { Location } from '@angular/common';
 
 @Component({
     selector : 'fbi-note',
@@ -27,7 +28,7 @@ export class FBINotePage implements OnInit{
     methodModel = '';
     methodOptions = [];
     
-    constructor( private router: Router, private route: ActivatedRoute ){
+    constructor( private router: Router, private route: ActivatedRoute, private location: Location){
 
     }
 
@@ -43,11 +44,11 @@ export class FBINotePage implements OnInit{
 
         this.conductedBy = 'default';
         this.conductedOptions =  [
+            { label : "Select Option", value : "default"},
             { label: "Juliette Fitzsimmons", value: "Juliette Fitzsimmons" },
             { label: "Marcus Stanton", value: "Marcus Stanton" },
             { label: "Tim Miller", value: "Tim Miller" },
-            { label: "Barb McCullen", value: "Barb McCullen" },
-            { label : "Select Option", value : "default"}
+            { label: "Barb McCullen", value: "Barb McCullen" }            
         ];
 
          var now = moment();
@@ -72,9 +73,9 @@ export class FBINotePage implements OnInit{
 
         this.methodModel = 'default';
         this.methodOptions = [
+            {label : "Select Option", value : "default"},
             {label : "QDU Procedures for Conducting Shoe and Tire Tread Examinations", value : "QDU Procedures for Conducting Shoe and Tire Tread Examinations"},
-            {label : "QDU Procedures for Conducting a Footwear Database Search", value : "QDU Procedures for Conducting a Footwear Database Search"},
-            { label : "Select Option", value : "default"}
+            {label : "QDU Procedures for Conducting a Footwear Database Search", value : "QDU Procedures for Conducting a Footwear Database Search"}            
         ]
     }
 
@@ -99,5 +100,20 @@ export class FBINotePage implements OnInit{
         }
 
     }
+
+    onSave(){
+        this.validateDate();
+        if(this.startDateError === false){
+            this.location.back();
+            window.scrollTo(0,0);
+        }
+    }
+
+    onCancel(){
+        this.location.back();
+        window.scrollTo(0,0);
+    }
+
+    
 
 }

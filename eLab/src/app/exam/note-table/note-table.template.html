@@ -13,15 +13,17 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="btn-place" (click) = "shoeNote()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Shoe Note</span></div>
-            </div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="btn-place" (click) = "tireNote()"><i class="fa fa-plus-square" aria-hidden="true"></i><span class="icon">&nbsp;Create Tire Note</span></div>
+            <div class="btn-group pd-tb-05" [ngClass] = "dropDownFlag === true ? 'open' : ''">
+                <a  class="btn btn-primary">Create Notes</a>
+                <a  class="btn btn-primary dropdown-toggle" (click) = "dropDown()" aria-expanded="true"><span class="caret"></span></a>
+                <ul class="dropdown-menu" *ngIf = "dropDownFlag === true">
+                    <li (click) = "shoeNote()"><a>Shoe Note</a></li>
+                    <li (click) = "tireNote()"><a>Tire Note</a></li>                                        
+                </ul>
             </div>
         </div>
-        <div *ngFor="let note of noteDetails">
-            <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+        <div *ngFor="let note of noteDetails let i = index">
+            <div class="col-xs-12 col-sm-12 col-sm-12 table-heading bg-grey">
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <h5>{{note.type}}</h5>
                 </div>
@@ -29,8 +31,8 @@
                     <h5>{{note.name}}</h5>
                 </div>
             </div>
-            <div *ngFor="let dt of note.subtype">
-                <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
+            <div *ngFor="let dt of note.subtype let odd = odd">
+                <div class="col-xs-12 col-sm-12 col-sm-12 table-heading" [ngClass] = "odd ? 'bg-grey' : ''">
                     <div class="col-xs-12 col-sm-4 col-md-4">
                         <h5>{{dt.type}}</h5>
                     </div>
