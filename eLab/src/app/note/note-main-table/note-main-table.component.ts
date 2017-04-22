@@ -10,6 +10,7 @@ export class NoteMainTable implements OnInit{
 
     tableContent = [];
     dropDownFlag : boolean = false;
+    
     constructor(){
 
     }
@@ -42,4 +43,5 @@ export class NoteMainTable implements OnInit{
     onQDetail(){
         this.dropDownFlag = false;
     }
+    
 }

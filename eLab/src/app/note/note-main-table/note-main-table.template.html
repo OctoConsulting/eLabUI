@@ -22,15 +22,15 @@
                 <h5>Description</h5>
             </div>
         </div>
-        <div *ngFor = "let content of tableContent">
-            <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+        <div *ngFor = "let content of tableContent let i = index">
+            <div class="col-xs-12 col-sm-12 col-md-12 table-heading"  [ngClass] = "i%2 === 0 ? 'bgcol' : ''">
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>{{content.type}}</h5>
+                    <h5 class = "table-content">{{content.type}}</h5>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                    <h5>{{content.desc}}</h5>
+                    <h5 class ="table-content">{{content.desc}}</h5>
                 </div>
             </div>
-        </div>    
+        </div>            
     </div>
 </div>
