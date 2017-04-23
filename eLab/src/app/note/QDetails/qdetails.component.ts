@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
     templateUrl : './qdetails.page.html',
     styleUrls : ['qdetails.component.css']
 })
+
 export class QDetailsPage implements OnInit{
     constructor(private router: Router, private route: ActivatedRoute, private location: Location){
 
