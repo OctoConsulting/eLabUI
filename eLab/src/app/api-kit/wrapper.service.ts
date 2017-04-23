@@ -7,7 +7,8 @@ export class WrapperService {
     private APIs: any = {
 
         "case": "/elab/v1/cases",
-        
+        "evidences" : "/elab/v1/evidences",
+        "evidencetypes" : "/elab/v1/evidencetypes/"
 
     };
 

@@ -20,7 +20,7 @@
           <h5 class = "table-content">{{checkEvidenceType(content.evidenceType)}}</h5>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
-          <h5 class = "table-content">{{content.id}}</h5>
+          <h5 class = "table-content">{{content._id}}</h5>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
           <h5 class = "table-content">{{content.containerName}}</h5>
@@ -34,7 +34,7 @@
             <h5 class = "table-content">{{checkEvidenceType(pk.evidenceType)}}</h5>
           </div>
           <div class = "col-xs-12 col-sm-3 col-md-3">
-            <h5 class = "table-content">{{pk.id}}</h5>
+            <h5 class = "table-content">{{pk._id}}</h5>
           </div>
           <div class = "col-xs-12 col-sm-3 col-md-3">
             <h5 class = "table-content">{{pk.packageName}}</h5>
@@ -48,13 +48,13 @@
               <h5 class = "table-content">{{checkEvidenceType(it.evidenceType)}}</h5>
             </div>
             <div class = "col-xs-12 col-sm-3 col-md-3">
-              <h5 class = "table-content">{{it.id}}</h5>
+              <h5 class = "table-content">{{it._id}}</h5>
             </div>
             <div class = "col-xs-12 col-sm-3 col-md-3">
               <h5 class = "table-content">{{it.evidenceName}}</h5>
             </div>
             <div class = "col-xs-12 col-sm-3 col-md-3 check">
-              <input  type = "checkbox" name = "item_check" value = "it.isForAnalysis" [(ngModel)] = "it.isForAnalysis" (change) = "OnChange($event)">
+              <input  type = "checkbox" name = "item_check" value = "it.isForAnalysis" [(ngModel)] = "it.isForAnalysis" (change) = "OnChange(it.id,it.isForAnalysis)">
             </div>
           </div>
         </div>
