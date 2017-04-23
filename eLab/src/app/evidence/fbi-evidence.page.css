@@ -37,6 +37,12 @@
   text-align: center;
   display: block;
 }
+.tx-align{
+    text-align: right;
+}
+.pd-t-1em{
+    padding-top: 1em;
+}
 
 .bold {
   font-weight:bold;
@@ -46,3 +52,10 @@
   background-color: gainsboro;
   box-shadow: 10px 10px 5px grey;
 }
+.bt-width{
+    width: 10em;
+}
+.pd-t-05em{
+    padding-top: 0.5em;
+}
+

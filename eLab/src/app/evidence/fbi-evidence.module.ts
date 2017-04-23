@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { FbiEvidencePage } from './fbi-evidence.page';
 import { routing } from './fbi-evidence.routes';
+import { FbiEvidenceService } from '../api-kit/evidences/fbi-evidences.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { routing } from './fbi-evidence.routes';
     RouterModule,
     HttpModule,
     FormsModule,
-    routing,
+    routing,    
   ],
   exports: [
 
@@ -22,7 +23,7 @@ import { routing } from './fbi-evidence.routes';
 
   ],
   providers: [
-
+    FbiEvidenceService,
   ]
 })
 export class FbiEvidenceModule{
