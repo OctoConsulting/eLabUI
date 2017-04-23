@@ -12,12 +12,13 @@
       </div>
     </div>
     <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
-      <div class = "btn-place" routerLink="../evidence/new"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>
+      <!--<div class = "btn-place" routerLink="../evidence/new"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>-->
+      <a routerLink="../evidence/new" class="btn btn-primary pd-bt-05">{{heading.addButton}}</a>
     </div>
     <div *ngFor = "let content of evidenceContainer">
       <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''" >
-        <div class = "col-xs-12 col-sm-3 col-md-3">
-          <h5 class = "table-content">{{checkEvidenceType(content.evidenceType)}}</h5>
+        <div class = "col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewEvidence(content.id)">
+          <h5 class = "table-content ft-cl">{{checkEvidenceType(content.evidenceType)}}</h5>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
           <h5 class = "table-content">{{content._id}}</h5>
@@ -30,8 +31,8 @@
       </div>
       <div *ngFor = "let pk of content.packages">
         <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''" >
-          <div class = "col-xs-12 col-sm-3 col-md-3 p-L-2em">
-            <h5 class = "table-content">{{checkEvidenceType(pk.evidenceType)}}</h5>
+          <div class = "col-xs-12 col-sm-3 col-md-3 p-L-2em crs" (click) = "viewEvidence(pk.id)">
+            <h5 class = "table-content ft-cl">{{checkEvidenceType(pk.evidenceType)}}</h5>
           </div>
           <div class = "col-xs-12 col-sm-3 col-md-3">
             <h5 class = "table-content">{{pk._id}}</h5>
@@ -44,8 +45,8 @@
         </div>
         <div *ngFor = "let it of pk.items">
           <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''" >
-            <div class = "col-xs-12 col-sm-3 col-md-3 p-L-3em">
-              <h5 class = "table-content">{{checkEvidenceType(it.evidenceType)}}</h5>
+            <div class = "col-xs-12 col-sm-3 col-md-3 p-L-3em crs" (click) = "viewEvidence(it.id)">
+              <h5 class = "table-content ft-cl">{{checkEvidenceType(it.evidenceType)}}</h5>
             </div>
             <div class = "col-xs-12 col-sm-3 col-md-3">
               <h5 class = "table-content">{{it._id}}</h5>
