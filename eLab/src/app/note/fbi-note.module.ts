@@ -7,6 +7,7 @@ import { routing } from './fbi-note.routes';
 import { FBINotePage } from './fbi-note.component';
 import { NoteMainTable } from './note-main-table/note-main-table.component'; 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { QDetailsPage } from './QDetails/qdetails.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
   ],
   declarations:[
     FBINotePage,
-    NoteMainTable
+    NoteMainTable,
+    QDetailsPage
   ],
   providers: [
     
