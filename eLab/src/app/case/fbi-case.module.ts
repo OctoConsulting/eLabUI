@@ -9,6 +9,7 @@ import { FBITable } from './fbi-table/fbi-table.component';
 import { FBIExamTable } from './fbi-exam-table/fbi-exam-table.component';
 import { WrapperService } from '../api-kit/wrapper.service';
 import { FbiCaseService } from '../api-kit/case/fbi-case.service';
+import { FbiEvidenceService } from '../api-kit/evidences/fbi-evidences.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { FbiCaseService } from '../api-kit/case/fbi-case.service';
   providers: [
     WrapperService,
     FbiCaseService,
+    FbiEvidenceService,
   ]
 })
 export class FbiCaseModule {
