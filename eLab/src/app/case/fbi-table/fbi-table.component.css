@@ -38,3 +38,14 @@
   padding-top: 0.6em;
   padding-left: 2.5em;
 }
+.crs{
+  cursor: pointer;
+}
+.pd-bt-05{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.ft-cl{
+  /*color : #2196f3;*/
+  font-weight: 300;
+}
