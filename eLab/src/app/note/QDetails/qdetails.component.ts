@@ -11,11 +11,18 @@ import { Location } from '@angular/common';
 
 export class QDetailsPage implements OnInit{
 	path: 'view' | 'new' = 'new';
+
+	QtypeModel: number = 0;
+	Qtype = [];
+	
     constructor(private router: Router, private route: ActivatedRoute, private location: Location){
 
     }
 
     ngOnInit(){
+    	this.Qtype = [
+    		{value: 0, label: 'Select Option'}
+    	]
     }
 
     onSave(){
