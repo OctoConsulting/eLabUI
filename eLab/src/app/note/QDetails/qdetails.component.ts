@@ -16,9 +16,15 @@ export class QDetailsPage implements OnInit{
     }
 
     ngOnInit(){
-   		this.determinePath();
+    }
 
-   		this.Qtype = [];
+    onSave(){
+    	this.location.back();
+       	window.scrollTo(0,0);
+    }
 
+    onCancel(){
+       	this.location.back();
+        window.scrollTo(0,0);
     }
 }

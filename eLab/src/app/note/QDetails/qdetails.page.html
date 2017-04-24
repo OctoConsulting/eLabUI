@@ -5,12 +5,16 @@
             <h3 class="head-align">Notes - {{path === 'new' ? 'New' : 'View/Edit'}} (Q Item Detail)</h3>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 p-3t">
-        <evidence-table [mode]="mode"></evidence-table>
+    <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em">
+        <evidence-table [path]="type"></evidence-table>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 p-3t p-3b">
-        <note-table></note-table>
+    <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em" >
+        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-10 col-sm-8 col-md-8">
+           <textarea [froalaEditor]='{heightMin : 200}' [(ngModel)] = "textData1"  ></textarea>
+        </div>    
     </div>
+
     <div *ngIf="mode !== 'view'">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-10 col-md-10">
