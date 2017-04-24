@@ -1,0 +1,19 @@
+.heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 1.5em;
+  background: #F1F1F1;
+  border-width: thin;
+}
+.table-heading{
+  border: silver;
+  border-style: solid;
+  padding-left: 0.7em;
+  border-width: thin;
+}
+.pd-t-05{
+    padding-top: 0.5em;
+}
+.p-05{
+    padding: 0.5em;
+}
