@@ -1,5 +1,5 @@
-import {Component,OnInit} from '@angular/core';
-
+import {Component,OnInit,Input} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
     selector : 'note-main-table',
@@ -8,10 +8,11 @@ import {Component,OnInit} from '@angular/core';
 })
 export class NoteMainTable implements OnInit{
 
+    @Input() type;
     tableContent = [];
     dropDownFlag : boolean = false;
     
-    constructor(){
+    constructor(private router: Router, private route: ActivatedRoute){
 
     }
 
@@ -38,10 +39,17 @@ export class NoteMainTable implements OnInit{
 
     onKDetail(){
         this.dropDownFlag = false;
+        if(this.type == 'shoe'){
+            this.router.navigate(['./notes/kdetails/shoe/new']);
+        }
+        else{
+            this.router.navigate(['./notes/kdetails/tire/new']);
+        }
     }
 
     onQDetail(){
         this.dropDownFlag = false;
+        this.router.navigate(['./notes/qdetails/new']);
     }
     
 }

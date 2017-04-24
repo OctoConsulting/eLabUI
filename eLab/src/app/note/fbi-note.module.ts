@@ -8,6 +8,9 @@ import { FBINotePage } from './fbi-note.component';
 import { NoteMainTable } from './note-main-table/note-main-table.component'; 
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 import { QDetailsPage } from './QDetails/qdetails.component';
+import { KDetailsPage } from './KDetails/k-details.component';
+import { EvidenceTable } from './evidence-table/evidence-table.component';
+
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import { QDetailsPage } from './QDetails/qdetails.component';
   declarations:[
     FBINotePage,
     NoteMainTable,
-    QDetailsPage
+    QDetailsPage,
+    KDetailsPage,
+    EvidenceTable
   ],
   providers: [
     

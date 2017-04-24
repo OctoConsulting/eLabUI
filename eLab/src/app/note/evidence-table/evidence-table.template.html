@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-1 col-sm-2 col-md-2"></div>
+    <div class="col-xs-10 col-sm-8 col-md-8">
+        <div class="col-xs-12 col-sm-12 col-md-12 heading">
+            <h4>Evidence</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+            <div class="col-xs-12 col-sm-2 col-md-2">
+                <h5>Select</h5>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <h5>Evidence Id</h5>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <h5>Evidence Name</h5>
+            </div>
+        </div>
+        <div *ngFor = "let content of evidenceDetails">
+            <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div class="pd-t-05"><input type="checkbox" value="content.selected" [(ngModel)]="content.selected"></div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h6>{{content.id}}</h6>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3">
+                    <h6>{{content.name}}</h6>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div *ngIf="content.isShoe" class="pd-t-05"><span class="label label-primary p-05">{{path == "shoe" ? 'Shoe' : 'Tire'}}</span></div>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                    <div *ngIf="content.isktype" class="pd-t-05"><span class="label label-primary p-05">K type</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
