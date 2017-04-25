@@ -8,8 +8,9 @@ export class WrapperService {
 
         "case": "/elab/v1/cases",
         "evidences" : "/elab/v1/evidences",
-        "evidencetypes" : "/elab/v1/evidencetypes/",
-        "exams" : "/elab/v1/exams/",
+        "evidencetypes" : "/elab/v1/evidencetypes",
+        "exams" : "/elab/v1/exams",
+        "ui-exams" : "/elab/v1/ui/exams"
 
     };
 

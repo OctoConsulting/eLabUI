@@ -45,7 +45,7 @@ export class FBIExamTable implements OnInit{
   formatDate(date){
     let oDate = date.split(" ");
     let actDate = oDate[0];
-    console.log(actDate);
+    //console.log(actDate);
     if(actDate != '' && actDate != null)
       return moment(actDate).format("MMM DD, YYYY HH:mm");
     else

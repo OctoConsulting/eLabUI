@@ -25,19 +25,19 @@
         <div *ngFor="let note of noteDetails let i = index">
             <div class="col-xs-12 col-sm-12 col-sm-12 table-heading bg-grey">
                 <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>{{note.type}}</h5>
+                    <h6>{{note.type}}</h6>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8">
-                    <h5>{{note.name}}</h5>
+                    <h6>{{note.name}}</h6>
                 </div>
             </div>
             <div *ngFor="let dt of note.subtype let odd = odd">
                 <div class="col-xs-12 col-sm-12 col-sm-12 table-heading" [ngClass] = "odd ? 'bg-grey' : ''">
                     <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>{{dt.type}}</h5>
+                        <h6>{{dt.type}}</h6>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-md-8">
-                        <h5>{{dt.name}}</h5>
+                        <h6>{{dt.name}}</h6>
                     </div>
                 </div>
             </div>

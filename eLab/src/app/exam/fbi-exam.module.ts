@@ -7,6 +7,8 @@ import { routing } from './fbi-exam.routes';
 import { FBIExamPage } from './fbi-exam.component';
 import { EvidenceTable } from './evidence-table/evidence-table.component';
 import { NoteTable } from './note-table/note-table.component';
+import { FbiExamService } from '../api-kit/exam/fbi-exam.service';
+import { WrapperService } from '../api-kit/wrapper.service';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { NoteTable } from './note-table/note-table.component';
     NoteTable
   ],
   providers: [
-    
+    FbiExamService,
+    WrapperService
   ]
 })
 export class FbiExamModule {
