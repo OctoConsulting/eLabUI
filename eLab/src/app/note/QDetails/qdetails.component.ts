@@ -8,12 +8,30 @@ import { Location } from '@angular/common';
     templateUrl : './qdetails.page.html',
     styleUrls : ['qdetails.component.css']
 })
+
 export class QDetailsPage implements OnInit{
+	path: 'view' | 'new' = 'new';
+
+	QtypeModel: number = 0;
+	Qtype = [];
+	
     constructor(private router: Router, private route: ActivatedRoute, private location: Location){
 
     }
 
     ngOnInit(){
+    	this.Qtype = [
+    		{value: 0, label: 'Select Option'}
+    	]
+    }
 
+    onSave(){
+    	this.location.back();
+       	window.scrollTo(0,0);
+    }
+
+    onCancel(){
+       	this.location.back();
+        window.scrollTo(0,0);
     }
 }
