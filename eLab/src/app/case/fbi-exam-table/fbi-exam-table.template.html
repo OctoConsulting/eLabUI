@@ -27,7 +27,7 @@
     </div>    
     <div *ngFor = "let content of data let even = even">
       <div class= "col-xs-12 col-sm-12 col-md-12 table-heading" [ngClass] = "even ? 'bg-grey' : ''">
-        <div class = "col-xs-12 col-sm-2 col-md-2 cr-point" (click) = "viewExam(content.id)">
+        <div class = "col-xs-12 col-sm-2 col-md-2 cr-point" (click) = "viewExam(content._id)">
           <h6>{{content.examTypeName}}</h6>
         </div>
         <div class = "col-xs-12 col-sm-2 col-md-2">

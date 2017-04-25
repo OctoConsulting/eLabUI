@@ -1,4 +1,4 @@
-import {Component,OnInit,Input} from '@angular/core';
+import {Component,OnInit,Input, Output,EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,9 @@ import {Component,OnInit,Input} from '@angular/core';
 })
 export class EvidenceTable implements OnInit{
 
-    @Input() mode : 'view' | 'edit' = 'edit'; 
+     @Input() EvidenceDetails;
+
+     @Output() evidencesSelected : EventEmitter<any> = new EventEmitter<any>();
 
     heading = {
         tableHeading : 'Evidence',
@@ -23,7 +25,7 @@ export class EvidenceTable implements OnInit{
     }
 
     ngOnInit(){
-        this.evidenceDetails =  [
+        /*this.evidenceDetails =  [
             {
                 selected : false,
                 itemId : 1,
@@ -44,7 +46,7 @@ export class EvidenceTable implements OnInit{
                 itemId : 4,
                 itemName : "Item Name 4"
             }
-        ]
+        ]*/
     }
 
     checkFlag(){
@@ -55,11 +57,12 @@ export class EvidenceTable implements OnInit{
     OnSelected(){
         //console.log("checked");
         let checked = [];
-        this.evidenceDetails.forEach( ev => {
-            if(ev.selected === true){
-                checked.push(ev.itemId);
+        this.EvidenceDetails.forEach( ev => {
+            if(ev.isSelected === true){
+                checked.push(ev.value);
             }
         });
-        console.log(checked);
+        //console.log(checked);
+        this.evidencesSelected.emit(checked);
     }
 }

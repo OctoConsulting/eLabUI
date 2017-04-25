@@ -16,23 +16,24 @@
             <div class = "col-xs-12 col-sm-3 col-md-3"></div>    
         </div>    
     </div>
-    <div *ngFor = "let detail of evidenceDetails">
+    <div *ngFor = "let detail of EvidenceDetails">
         <div class = "row">
             <div class = "col-xs-1 col-sm-2 col-md-2"></div>
             <div class = "col-xs-10 col-sm-8 col-md-8 table-heading" [ngClass] = "checkFlag() ? 'bg-grey' : ''">
                 <div class = "col-xs-12 col-sm-3 col-md-3 pd-1e">
-                    <input type="checkbox" name="item-check" [(ngModel)] = "detail.selected" (change) = "OnSelected()" [disabled] = "mode === 'view'" />
+                    <input type="checkbox" name="item-check" [(ngModel)] = "detail.isSelected" (change) = "OnSelected()" />
                 </div>
                 <div class = "col-xs-12 col-sm-3 col-md-3 ">
-                    <h5 class="table-content pd-l-1em">{{detail.itemId}}</h5>
+                    <h6 class="pd-l-1em">{{detail.value}}</h6>
                 </div>
                 <div class = "col-xs-12 col-sm-3 col-md-3">
-                    <h5 class="table-content">{{detail.itemName}}</h5>
+                    <h6>{{detail.label}}</h6>
                 </div>
                 <div class = "col-xs-12 col-sm-3 col-md-3"></div>            
              </div>    
         </div>
     </div>              
-</div>    
+</div>
+  
 
       
