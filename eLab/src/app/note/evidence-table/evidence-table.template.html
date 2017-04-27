@@ -18,7 +18,7 @@
         <div *ngFor = "let content of evidenceDetails">
             <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
                 <div class="col-xs-12 col-sm-2 col-md-2">
-                    <div class="pd-t-05"><input type="checkbox" value="content.selected" [(ngModel)]="content.selected"></div>
+                    <div class="pd-t-05"><input type="checkbox" value="content.selected" [(ngModel)]="content.selected" (change)="showTypeLabels(content)"></div>
                 </div>
                 <div class="col-xs-12 col-sm-3 col-md-3">
                     <h6>{{content.id}}</h6>
@@ -27,10 +27,11 @@
                     <h6>{{content.name}}</h6>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2">
-                    <div *ngIf="content.isShoe" class="pd-t-05"><span class="label label-primary p-05">{{path == "shoe" ? 'Shoe' : 'Tire'}}</span></div>
+                    <div *ngIf="content.isShoe" class="pd-t-05 hidden" [attr.id]="'shoeTireLabel' + content.id"><span class="label label-primary p-05">{{path == "shoe" ? 'Shoe' : 'Tire'}}</span></div>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2">
-                    <div *ngIf="content.isktype" class="pd-t-05"><span class="label label-primary p-05">K type</span></div>
+                    <div *ngIf="content.isktype" class="pd-t-05 hidden" [attr.id]="'typeLabel' + content.id"><span class="label label-primary p-05">K type</span></div>
+                    <!-- if content.isktype is true show K Type otherwise show Q type -->
                 </div>
             </div>
         </div>
