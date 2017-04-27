@@ -33,7 +33,7 @@ export class EvidenceTable implements OnInit{
                 isShoe : true,
             },
             {
-                selected : true,
+                selected : false,
                 id : 3,
                 name : "Evidence Name 3",
                 isktype : true,
@@ -51,21 +51,10 @@ export class EvidenceTable implements OnInit{
     }
 
     showTypeLabels(content) {
-        var shoeTireLabel = document.getElementById("shoeTireLabel" + content.id)
-        var typeLabel = document.getElementById("typeLabel" + content.id)
-        if(content.isktype === true) {
-            //if it has a class of hidden
-            //remove class on element with id [attr.id]="'typeLabel' + content.id"
-            //otherwise add it
-            //then show the label k label and shoe if shoe and tire if tire
-            //for shoetire label element
-            console.log("Is a k type");
-        } else {
-            //if it has a class of hidden
-            //remove class on element with id [attr.id]="'typeLabel' + content.id"
-            //to show that it is qtype button
-            console.log("isn't k type");
-        }
+        var shoeTireLabel = $("#shoeTireLabel" + content.id)
+        var typeLabel = $("#typeLabel" + content.id);
+        shoeTireLabel.toggleClass('hidden');
+        typeLabel.toggleClass('hidden');
     }    
 
 }
