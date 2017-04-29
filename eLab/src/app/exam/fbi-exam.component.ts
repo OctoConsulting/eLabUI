@@ -171,12 +171,12 @@ export class FBIExamPage implements OnInit {
         console.log(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins +":" +this.startDate.secs + this.startDate.zone);
         console.log(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins+ ":" + this.completedDate.secs + this.completedDate.zone);
         
-        this.createExam();
+        
               
         if (!this.startDateError && !this.assignDateError && !this.completedDateError) {
             //location.reload();
-            this.router.navigate(['./']);
-            window.scrollTo(0, 0);            
+            
+            this.createExam('save');           
         }
     }
 
@@ -185,14 +185,13 @@ export class FBIExamPage implements OnInit {
         window.scrollTo(0, 0);
     }
 
-    onAnother() {
+    onCreateAnother() {
         console.log("Another");
         this.validateDate();
         //this.validateForm();
         
-        if (!this.nameError && !this.startDateError && !this.assignDateError) {
-            this.router.navigate(['./exam/new']);
-            window.scrollTo(0, 0);
+        if (!this.startDateError && !this.assignDateError && !this.completedDateError) {
+            this.createExam('another');
         }  
             
     }
@@ -234,7 +233,7 @@ export class FBIExamPage implements OnInit {
                         this.selectedEvidence.push(ev.id);
                     }
                 });
-                console.log(this.selectedEvidence);
+                //console.log(this.selectedEvidence);
 
                 this.NameInput = res.name;
                 if(res.assignedDate != null){
@@ -262,7 +261,7 @@ export class FBIExamPage implements OnInit {
         console.log(this.selectedEvidence);
     }
     
-    createExam(){
+    createExam(enter : string){
         
         let obj :any =  {
             caseId : 1,
@@ -271,8 +270,7 @@ export class FBIExamPage implements OnInit {
             examinerId : this.examinerModel,
             assignedDate : "",
             startDate : "",
-            endDate : "",
-            evidenceIds : this.selectedEvidence           
+            endDate : "",                       
         }; 
         if(this.assignDateError != true){
             if(this.assignDate.date != '' || this.assignDate.month != '' || this.assignDate.year != ''){
@@ -297,9 +295,22 @@ export class FBIExamPage implements OnInit {
         }
 
         console.log(obj);
-        this.exam.createExam(obj).subscribe(res =>{
-            console.log(res);
-        });    
+        if(enter == 'save'){
+            this.exam.createExam(obj).subscribe(res =>{
+                console.log(res);
+                this.router.navigate(['./']);
+                window.scrollTo(0, 0); 
+            });
+        }
+        else{
+            this.exam.createExam(obj).subscribe(res =>{
+                console.log(res);
+                this.router.navigate(['./exam/new']);
+                window.location.reload();
+                window.scrollTo(0, 0); 
+            });
+        }
+            
     }
 
 }
