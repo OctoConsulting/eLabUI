@@ -11,19 +11,25 @@ export class FbiEvidencePage implements OnInit {
   mode: 'view' | 'new' = 'new';
   selectedId : number;
   
+  id : number;
   evidenceTypes = [];
   parentTypes = [];
   ParentTypeModel : number = 0;
   evidenceData;
   typeModel: number = 0;
+  
+  containers : any;
+  packages : any;
+  items : any;
 
-  ParentEvidenceModel : number = 0;
+  ParentEvidenceModel : any = '';
   parentEvidences = [];
 
   evidenceName : string = '';
   forAnalysis : boolean = false;
 
   createAnother : boolean = false;
+
   constructor(private router: Router, private route: ActivatedRoute, private evidence: FbiEvidenceService) {
 
   }
@@ -41,12 +47,12 @@ export class FbiEvidencePage implements OnInit {
     this.determineMode();
     this.getEvidenceTypes();
     this.getParentType();
-    this.getParentEvidences();
+    
     if(this.mode === 'view'){
       this.determineParam();
-      this.getEvidenceDetails();
-      
+      this.getEvidenceDetails();      
     }
+    this.parentEvidence();
     
   }
 
@@ -59,8 +65,6 @@ export class FbiEvidencePage implements OnInit {
   getEvidenceTypes() {
     this.evidence.getEvidenceTypes().subscribe(res => {
       this.evidenceTypes = res.map(this.mapLabelAndValue);
-      this.evidenceTypes.unshift({ value: 0, label: 'Select Option' });
-      //console.log(this.evidenceTypes);
     });
 
   }
@@ -69,74 +73,133 @@ export class FbiEvidencePage implements OnInit {
     return { value: val.id, label: val.description };
   }
 
+  mapLabel(val){
+    return {value: val.id, label: val._id};
+  }
+
   determineParam() {
     this.route.params.subscribe(param => {
-      this.selectedId = param['id'];
-      //console.log(id);
+      this.selectedId = param['id'];      
     });
   }
 
   getEvidenceDetails(){
-    //console.log(this.selectedId);
     this.evidence.getEvidenceDetails(this.selectedId).subscribe( res =>{
       this.typeModel = res.evidenceType;
       this.evidenceName = res.evidenceName;
       this.forAnalysis = res.isForAnalysis;
+      
+      this.id = res._id;
       this.getParentType();
+      this.parentEvidence();
+      
       if(this.typeModel == 1){
         this.ParentTypeModel = 0;  
       }
       else{
         this.ParentTypeModel = 1;
       }
-      this.getParentEvidences();
+      //this.getParentEvidences();
     });
   }
 
   getParentType(){
     if(this.typeModel == 1){
       this.parentTypes = [];
-      this.parentTypes.push({value : 0, label : "Select Options"});      
+      this.parentTypes.push({value : 0, label : "Select Option"});      
     }
     else if(this.typeModel == 2){
       this.parentTypes = [];
-      this.parentTypes.push({value : 0, label : "Select Options"});
+      this.parentTypes.push({value : 0, label : "Select Option"});
       this.parentTypes.push({value : 1, label : "Container"});
       this.parentTypes.push({value: 2, label : "Package"});      
     }
     else{
       this.parentTypes = [];
-      this.parentTypes.push({value : 0, label : "Select Options"});
+      this.parentTypes.push({value : 0, label : "Select Option"});
       this.parentTypes.push({value : 1, label : "Container"});
       this.parentTypes.push({value : 2, label : "Package"});
       this.parentTypes.push({value : 3, label : "Item"});      
-    }    
+    }        
   }
 
   getParentEvidences(){
-    this.parentEvidences = [
-      {value : 0, label: "Select Option"},
-      {value : 1, label: "1"}
-    ];
+       
+    if(this.ParentTypeModel == 1){
+      this.parentEvidences = [];
+      this.parentEvidences = this.containers.map(this.mapLabel);
+      this.parentEvidences.unshift({value : '', label : "Select Option"});
+    }
+    else if(this.ParentTypeModel == 2){
+      this.parentEvidences = [];
+      this.parentEvidences = this.packages.map(this.mapLabel);
+      this.parentEvidences.unshift({value : '', label : "Select Option"});
+    }
+    else if(this.ParentTypeModel == 3){
+      this.parentEvidences = [];
+      this.parentEvidences = this.items.map(this.mapLabel);
+      this.parentEvidences.unshift({value : '', label : "Select Option"});
+    }
+    else{
+      this.parentEvidences = [];
+      this.parentEvidences.push({value : '', label : "Select Option"});
+    }
+    
   }
 
   changeParentOptions(){
     this.getParentType();
-    this.getParentEvidences();
+    
   }
 
   onChange(){
-    console.log(this.ParentTypeModel);
+    this.getParentEvidences();
+  }
+
+  parentEvidence(){
+    this.evidence.getParentEvidence(1).subscribe( res => {
+      console.log(res);
+      this.containers = res.containers;
+      this.packages = res.packages;
+      this.items = res.items;
+      this.getParentEvidences();       
+    });
+    
   }
 
   onSave(){
-    console.log(this.typeModel);
-    console.log(this.ParentTypeModel);
-    console.log(this.ParentEvidenceModel);
-    console.log(this.evidenceName);
-    console.log(this.forAnalysis);
-    console.log(this.selectedId);
-    this.router.navigate(['./']);
+    if(this.mode == 'new'){
+      let obj = {
+        caseId : 1,
+        evidenceName : this.evidenceName,
+        evidenceType : this.typeModel,
+        isForAnalysis : this.forAnalysis,
+        parentId : this.ParentEvidenceModel,      
+      } 
+
+      this.evidence.createEvidences(obj).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['./']);
+      });
+    }
+    else{
+      console.log("Here");
+      let obj = {
+        caseId : 1,
+        evidenceName : this.evidenceName,
+        evidenceType : this.typeModel,
+        isForAnalysis : this.forAnalysis,
+        parentId : this.ParentEvidenceModel,
+        id : this.selectedId      
+      } 
+
+      this.evidence.updateEvidences(obj).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['./']);
+      });
+    }
+    
+    
   }
 
   onCancel(){
@@ -147,5 +210,6 @@ export class FbiEvidencePage implements OnInit {
     this.createAnother = false;
     window.location.reload();
   }
-  
+
+    
 }

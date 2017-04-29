@@ -46,4 +46,39 @@ export class FbiEvidenceService {
       return this.apiService.call(apiOptions);
   }
 
+  getParentEvidence(id : number){
+      let apiOptions : any = {
+          name : "caseevidences",
+          suffix : '/' + id + '/',
+          method : 'GET',
+          oParam : { }
+      }
+
+      return this.apiService.call(apiOptions);
+  }
+
+  createEvidences(obj){
+     let apiOptions : any = {
+          name : "evidences",
+          suffix : '/',
+          method : 'POST',
+          oParam : { },
+          body: obj,
+      }
+
+      return this.apiService.call(apiOptions,false);
+  }
+
+  updateEvidences(obj){
+      let apiOptions : any = {
+          name : "evidences",
+          suffix : '',
+          method : 'PUT',
+          oParam : { },
+          body: obj,
+      }
+
+      return this.apiService.call(apiOptions,false);
+  }
+
 }

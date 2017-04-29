@@ -12,7 +12,7 @@ export class FBITable implements OnInit {
   flag = false;
   tabData;
   checked: any = [];
-
+  rowNum = 0;
   @Input() evidenceContainer;
 
   heading: {
@@ -39,7 +39,11 @@ export class FBITable implements OnInit {
 
   checkFlag() {
     this.flag = !this.flag;
-    return this.flag;
+    if(this.flag == true)
+    return 'bg-grey';
+
+    else
+      return '';
   }
 
   checkEvidenceType(type: number) {
@@ -71,4 +75,8 @@ export class FBITable implements OnInit {
     window.scrollTo(0,0);    
   }
 
+  evidenceBtn(){
+    this.router.navigate(['./evidence/new']);
+    window.scrollTo(0,0);
+  }
 }

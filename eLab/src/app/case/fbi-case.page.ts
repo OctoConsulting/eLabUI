@@ -14,14 +14,7 @@ export class FbiCasePage implements OnInit{
   }
 
   ngOnInit(){
-    /*this.casedata = {
-      Lab_no : '2017-118',
-      Status : 'In Progress',
-      Date_Opened : '2017-03-25T21:41:00.000-0400',
-      Violation:  'No',
-      Violation_Date: '2017-07-15T18:26:00.000-0400'
-    };*/
-
+    console.log("Refreshed");
     this.cs.getCaseDetails(1).subscribe(res => {
       //console.log(res);
       let oDate = res.openedDatetime.split(" ");

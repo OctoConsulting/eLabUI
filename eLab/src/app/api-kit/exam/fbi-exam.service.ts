@@ -40,4 +40,16 @@ export class FbiExamService {
     return this.apiService.call(apiOptions);
   }
 
+  createExam(obj){
+      let apiOptions: any = {
+      name: 'exams',
+      suffix: '/',
+      method: 'POST',
+      oParam: { },
+      body: obj,
+    };
+
+    return this.apiService.call(apiOptions, false);
+  }
+
 }

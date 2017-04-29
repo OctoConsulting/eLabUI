@@ -6,6 +6,19 @@
     </div>
   </div>
   <!-- Type -->
+  <div *ngIf="mode === 'view'">
+    <div class='row'>
+      <div class='col-xs-1 col-sm-2 col-md-2'></div>
+      <div class='col-xs-10 col-sm-8 col-md-8'>
+        <div class='col-xs-12 col-sm-2 col-md-2'>
+          <h4 class="tx-align">Item</h4>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3">
+          <h5>#{{id}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class='row'>
     <div class='col-xs-1 col-sm-2 col-md-2'></div>
     <div class='col-xs-10 col-sm-8 col-md-8'>
@@ -51,33 +64,34 @@
         <h4 class="tx-align">Name</h4>
       </div>
       <div class='col-xs-12 col-sm-3 col-md-3'>
-        <input type='text' class='form-control' id='evidence_input_field' placeholder='Enter Evidence Name' [value] = "evidenceName" [(ngModel)] = "evidenceName">        
+        <input type='text' class='form-control' id='evidence_input_field' placeholder='Enter Evidence Name' [value]="evidenceName"
+          [(ngModel)]="evidenceName">
       </div>
-    </div>         
+    </div>
   </div>
-  <div class = "row" *ngIf = "typeModel == 3">
+  <div class="row" *ngIf="typeModel == 3">
     <div class='col-xs-1 col-sm-2 col-md-2'></div>
     <div class='col-xs-10 col-sm-8 col-md-8'>
       <div class='col-xs-12 col-sm-2 col-md-2'>
         <h4 class="tx-align">For Analysis</h4>
       </div>
       <div class='col-xs-12 col-sm-3 col-md-3 pd-t-1em'>
-        <input  type = "checkbox" name = "item_check"  [(ngModel)] = "forAnalysis" >
+        <input type="checkbox" name="item_check" [(ngModel)]="forAnalysis">
       </div>
     </div>
-  </div>  
+  </div>
   <!-- End name and Analysis -->
   <!-- Save and Cancel Buttons -->
   <div class='col-xs-12 col-sm-12 col-md-12 pd-t-1em'>
     <div class='col-xs-1 col-sm-2 col-md-2'></div>
-    <div class='col-xs-10 col-sm-8 col-md-8'> 
+    <div class='col-xs-10 col-sm-8 col-md-8'>
       <div class='col-xs-12 col-sm-12 col-md-12'>
-        <button class='btn btn-primary bt-width' (click) = "onSave()">Save</button>&nbsp;&nbsp;&nbsp;
-        <button class='btn btn-danger bt-width' (click) = "onCancel()">Cancel</button>
+        <button class='btn btn-primary bt-width' (click)="onSave()">Save</button>&nbsp;&nbsp;&nbsp;
+        <button class='btn btn-danger bt-width' (click)="onCancel()">Cancel</button>
       </div>
-      <div class = "col-xs-12 col-sm-12 col-md-12 pd-t-05em">
+      <div class="col-xs-12 col-sm-12 col-md-12 pd-t-05em">
         <span>Create Another</span>
-        <input type='checkbox' [(ngModel)] = "createAnother" (change) = "onCreateAnother()">
+        <input type='checkbox' [(ngModel)]="createAnother" (change)="onCreateAnother()">
       </div>
     </div>
   </div>

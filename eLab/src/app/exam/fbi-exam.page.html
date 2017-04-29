@@ -75,7 +75,7 @@
                 <h4>Start Date</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 ">
-                <div (change)="test()" [ngClass]="startDateError ? 'has-error' : ''">
+                <div  [ngClass]="startDateError ? 'has-error' : ''">
                     <div *ngIf="startDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <input type="text" class="form-control p-6t" maxlength=2 [(ngModel)]="startDate.month" [attr.placeholder]="'MM'">
@@ -97,7 +97,7 @@
                 <h4>Completed Date</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 ">
-                <div (change)="test()" [ngClass]="completedDateError ? 'has-error' : ''">
+                <div  [ngClass]="completedDateError ? 'has-error' : ''">
                     <div *ngIf="completedDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <input type="text" class="form-control p-6t" maxlength=2 [(ngModel)]="completedDate.month" [attr.placeholder]="'MM'">

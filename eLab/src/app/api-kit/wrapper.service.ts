@@ -10,7 +10,8 @@ export class WrapperService {
         "evidences" : "/elab/v1/evidences",
         "evidencetypes" : "/elab/v1/evidencetypes",
         "exams" : "/elab/v1/exams",
-        "ui-exams" : "/elab/v1/ui/exams"
+        "ui-exams" : "/elab/v1/ui/exams",
+        "caseevidences" : "/elab/v1/caseevidences",
 
     };
 
