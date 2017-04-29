@@ -43,11 +43,11 @@ export class FBIExamTable implements OnInit{
   }
 
   formatDate(date){
-    let oDate = date.split(" ");
-    let actDate = oDate[0];
+    //let oDate = date.split(" ");
+    //let actDate = oDate[0];
     //console.log(actDate);
-    if(actDate != '' && actDate != null)
-      return moment(actDate).format("MMM DD, YYYY HH:mm");
+    if(date != '' && date != null)
+      return moment(date).format("MMM DD, YYYY HH:mm");
     else
       return '--';
     

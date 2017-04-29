@@ -20,13 +20,13 @@ export class FBIExamPage implements OnInit {
     selectModel: number = 0;
     examinerModel: number = 0;
 
-    assignDate = { date: '', month: '', year: '', hours: '', mins: '', zone: '' };
+    assignDate = { date: '', month: '', year: '', hours: '', mins: '',secs : '', zone: '' };
     assignDateError: boolean = false;
 
-    startDate = { date: '', month: '', year: '', hours: '', mins: '', zone: '' };
+    startDate = { date: '', month: '', year: '', hours: '', mins: '',secs : '', zone: '' };
     startDateError: boolean = false;
 
-    completedDate = { date: '', month: '', year: '', hours: '', mins: '', zone: '' };
+    completedDate = { date: '', month: '', year: '', hours: '', mins: '',secs:'',zone: '' };
     completedDateError: boolean = false;
     
     initAssign;
@@ -67,7 +67,7 @@ export class FBIExamPage implements OnInit {
             { label: "Barb McCullen", value: "Barb McCullen" }
         ];*/
 
-        
+        //console.log(this.now);
 
         /*this.assignDate = {
             date: (now._d.getDate() - 1),
@@ -107,6 +107,7 @@ export class FBIExamPage implements OnInit {
         if(this.assignDate.year != '' || this.assignDate.month != '' || this.assignDate.date != ''){
             this.assignDate.hours = this.now._d.getHours();
             this.assignDate.mins =  this.now._d.getMinutes();
+            this.assignDate.secs = this.now._d.getSeconds();
             this.assignDate.zone =  moment().format('Z'); 
             if (!moment(this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins + this.assignDate.zone, "YYYY-MM-DDTHH:mmZ").isValid()) {
                 this.assignDateError = true;
@@ -118,6 +119,7 @@ export class FBIExamPage implements OnInit {
         if(this.startDate.year != '' || this.startDate.month != '' || this.startDate.date != ''){
             this.startDate.hours = this.now._d.getHours();
             this.startDate.mins = this.now._d.getMinutes();
+            this.startDate.secs = this.now._d.getSeconds();
             this.startDate.zone = moment().format('Z');
 
             if (!moment(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins + this.startDate.zone, "YYYY-MM-DDTHH:mmZ").isValid()) {
@@ -136,6 +138,7 @@ export class FBIExamPage implements OnInit {
         if(this.completedDate.year != '' || this.completedDate.month != '' || this.completedDate.date != ''){
             this.completedDate.hours = this.now._d.getHours();
             this.completedDate.mins = this.now._d.getMinutes();
+            this.completedDate.secs = this.now._d.getSeconds();
             this.completedDate.zone = moment().format('Z'); 
 
             if (!moment(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins + this.completedDate.zone, "YYYY-MM-DDTHH:mmZ").isValid()) {
@@ -164,14 +167,16 @@ export class FBIExamPage implements OnInit {
         this.validateDate();
         this.validateCompleteDate();
         //this.validateForm();
-        console.log(this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins + this.assignDate.zone);
-        console.log(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins + this.startDate.zone);
-        console.log(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins + this.completedDate.zone);
+        console.log(this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins+":"+this.assignDate.secs + this.assignDate.zone);
+        console.log(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins +":" +this.startDate.secs + this.startDate.zone);
+        console.log(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins+ ":" + this.completedDate.secs + this.completedDate.zone);
         
-        
+        this.createExam();
+              
         if (!this.startDateError && !this.assignDateError && !this.completedDateError) {
+            //location.reload();
             this.router.navigate(['./']);
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0);            
         }
     }
 
@@ -197,9 +202,9 @@ export class FBIExamPage implements OnInit {
             this.exam.getExamPageDetails(this.path).subscribe(res => {
                 //console.log(res);
                 this.examType = res.examType.map(this.mapLabelAndValue);
-                this.examType.unshift({value : 0, label : "Select Option"});
+                //this.examType.unshift({value : 0, label : "Select Option"});
                 this.examiners = res.examiners.map(this.mapLabelAndValue);
-                this.examiners.unshift({value : 0 , label : "Select Option"});
+                //this.examiners.unshift({value : 0 , label : "Select Option"});
                 this.evidences = res.evidences.map(this.mapEvidences);
                 //console.log(this.evidences);
             });
@@ -207,9 +212,9 @@ export class FBIExamPage implements OnInit {
         else{
             this.exam.getExamPageDetails('edit',this.id,1).subscribe(res => {
                 this.examType = res.examType.map(this.mapLabelAndValue);
-                this.examType.unshift({value : 0, label : "Select Option"});
+                //this.examType.unshift({value : 0, label : "Select Option"});
                 this.examiners = res.examiners.map(this.mapLabelAndValue);
-                this.examiners.unshift({value : 0 , label : "Select Option"});
+                //this.examiners.unshift({value : 0 , label : "Select Option"});
                 this.evidences = res.evidences.map(this.mapEvidences);
 
                 res.examType.forEach( exam =>{
@@ -224,11 +229,30 @@ export class FBIExamPage implements OnInit {
                     }
                 });
 
+                res.evidences.forEach(ev=> {
+                    if(ev.isSelected == true){
+                        this.selectedEvidence.push(ev.id);
+                    }
+                });
+                console.log(this.selectedEvidence);
 
                 this.NameInput = res.name;
-                this.assignDate.date = moment(res.assignedDate).format("DD");
-                this.assignDate.month = moment(res.assignedDate).format("MM");
-                this.assignDate.year = moment(res.assignDate).format("YYYY");
+                if(res.assignedDate != null){
+                    this.assignDate.date = moment(res.assignedDate).format("DD");
+                    this.assignDate.month = moment(res.assignedDate).format("MM");
+                    this.assignDate.year = moment(res.assignDate).format("YYYY");
+                }
+                if(res.startDate != null){
+                    this.startDate.date = moment(res.startDate).format("DD");
+                    this.startDate.month = moment(res.startDate).format("MM");
+                    this.startDate.year = moment(res.startDate).format("YYYY");
+                }
+                if(res.endDate){
+                    this.completedDate.date = moment(res.endDate).format("DD");
+                    this.completedDate.month = moment(res.endDate).format("MM");
+                    this.completedDate.year = moment(res.endDate).format("YYYY");  
+                }
+                
             });
         }
     }
@@ -238,5 +262,44 @@ export class FBIExamPage implements OnInit {
         console.log(this.selectedEvidence);
     }
     
+    createExam(){
+        
+        let obj :any =  {
+            caseId : 1,
+            examName : this.NameInput,
+            examType : this.selectModel,
+            examinerId : this.examinerModel,
+            assignedDate : "",
+            startDate : "",
+            endDate : "",
+            evidenceIds : this.selectedEvidence           
+        }; 
+        if(this.assignDateError != true){
+            if(this.assignDate.date != '' || this.assignDate.month != '' || this.assignDate.year != ''){
+                obj.assignedDate  = this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins+":"+this.assignDate.secs + this.assignDate.zone;
+            }
+        }
+
+        if(this.startDateError == false){
+            if(this.startDate.year != '' || this.startDate.month != '' || this.startDate.date != ''){
+                obj.startDate = this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins +":" +this.startDate.secs + this.startDate.zone;
+            }
+        }
+
+        if(this.completedDateError == false){
+            if(this.completedDate.year != '' || this.completedDate.date != '' || this.completedDate.month){
+                obj.endDate = this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins+ ":" + this.completedDate.secs + this.completedDate.zone;
+            }
+        }
+
+        if(this.path == 'view'){
+            obj._id = this.id;
+        }
+
+        console.log(obj);
+        this.exam.createExam(obj).subscribe(res =>{
+            console.log(res);
+        });    
+    }
 
 }
