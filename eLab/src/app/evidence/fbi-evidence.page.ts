@@ -202,13 +202,50 @@ export class FbiEvidencePage implements OnInit {
     
   }
 
+  postEvidence(){
+    if(this.mode == 'new'){
+      let obj = {
+        caseId : 1,
+        evidenceName : this.evidenceName,
+        evidenceType : this.typeModel,
+        isForAnalysis : this.forAnalysis,
+        parentId : this.ParentEvidenceModel,      
+      }
+
+      this.evidence.createEvidences(obj).subscribe(res => {
+        console.log(res);
+        window.location.reload();
+        this.router.navigate(['./evidence/new']);
+      });
+
+    }
+    else{
+      let obj = {
+        caseId : 1,
+        evidenceName : this.evidenceName,
+        evidenceType : this.typeModel,
+        isForAnalysis : this.forAnalysis,
+        parentId : this.ParentEvidenceModel,
+        id : this.selectedId      
+      }
+
+      this.evidence.updateEvidences(obj).subscribe(res => {
+        console.log(res);
+        window.location.reload();
+        this.router.navigate(['./evidence/new']);
+      });
+
+    }
+  }
+
   onCancel(){
     this.router.navigate(['./']);
   }
 
   onCreateAnother(){
+    this.postEvidence();
     this.createAnother = false;
-    window.location.reload();
+    
   }
 
     
