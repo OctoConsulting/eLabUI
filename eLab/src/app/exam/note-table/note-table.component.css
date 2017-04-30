@@ -37,3 +37,17 @@
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
+.pd-l-17em{
+  padding-left: 1.7em;
+}
+.icon{
+    position: absolute;
+    font-size: 1.3em;
+    padding-top: 0.5em;
+}
+.b-grey{
+  background: #F7F7F7;
+}
+.crs{
+  cursor: pointer;
+}

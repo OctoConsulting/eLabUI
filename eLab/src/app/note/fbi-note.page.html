@@ -2,7 +2,7 @@
      <div class = "row">
          <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-10 col-sm-8 col-md-8">
-                <h3 class="head-align">{{type === 'tire' ? 'Tire' : 'Shoe'}} Notes - {{path === 'new' ? 'New' : 'View/Edit'}}</h3>
+                <h3 class="head-align">{{type === 'Tire' ? 'Tire' : 'Shoe'}} Notes - {{path === 'new' ? 'New' : 'View/Edit'}}</h3>
         </div>
      </div>
      <div class = "row">
@@ -60,7 +60,7 @@
                 <h4>Request Type</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 ">
-                <select #select multiple [(ngModel)]="requestType" class = "sel-wid"> 
+                <select #select multiple [(ngModel)]="requestType" class = "sel-wid" (change)="change()"> 
                     <option *ngFor="let item of requestOptions" [value]="item.value">{{item.label}}</option>
                 </select>
             </div>

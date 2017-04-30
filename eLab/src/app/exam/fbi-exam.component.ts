@@ -42,50 +42,18 @@ export class FBIExamPage implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.router.url);
+        //console.log(this.router.url);
         
         this.determinePath();
 
         this.route.params.subscribe(param => {
             this.id = param['id'];
-            console.log(this.id);
+            //console.log(this.id);
         })
 
         this.getExamDetails();
 
-        /*this.examType = [
-            { label: "Shoe Prints/Tire Tread", value: "Shoe Prints/Tire Tread" },
-            { label: "Chemistry - Toxicology", value: "Chemistry - Toxicology" },
-            { label: "Firearms", value: "Firearms" },
-            { label: "Question Documents", value: "Question Documents" }
-        ];*/
-
-        /*this.examiners = [
-            { label: "Juliette Fitzsimmons", value: "Juliette Fitzsimmons" },
-            { label: "Marcus Stanton", value: "Marcus Stanton" },
-            { label: "Tim Miller", value: "Tim Miller" },
-            { label: "Barb McCullen", value: "Barb McCullen" }
-        ];*/
-
-        //console.log(this.now);
-
-        /*this.assignDate = {
-            date: (now._d.getDate() - 1),
-            month: now._d.getMonth() + 1,
-            year: now._d.getFullYear(),
-            hours: now._d.getHours(),
-            mins: now._d.getMinutes(),
-            zone: moment().format('Z')
-        }*/
-
-        /*this.startDate = {
-            date: now._d.getDate(),
-            month: now._d.getMonth() + 1,
-            year: now._d.getFullYear(),
-            hours: now._d.getHours(),
-            mins: now._d.getMinutes(),
-            zone: moment().format('Z')
-        }*/
+        
     }
 
     mapLabelAndValue(val){
@@ -167,9 +135,9 @@ export class FBIExamPage implements OnInit {
         this.validateDate();
         this.validateCompleteDate();
         //this.validateForm();
-        console.log(this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins+":"+this.assignDate.secs + this.assignDate.zone);
-        console.log(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins +":" +this.startDate.secs + this.startDate.zone);
-        console.log(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins+ ":" + this.completedDate.secs + this.completedDate.zone);
+        //console.log(this.assignDate.year + '-' + this.assignDate.month + '-' + this.assignDate.date + 'T' + this.assignDate.hours + ":" + this.assignDate.mins+":"+this.assignDate.secs + this.assignDate.zone);
+        //console.log(this.startDate.year + '-' + this.startDate.month + '-' + this.startDate.date + 'T' + this.startDate.hours + ":" + this.startDate.mins +":" +this.startDate.secs + this.startDate.zone);
+        //console.log(this.completedDate.year + '-' + this.completedDate.month + '-' + this.completedDate.date + 'T' + this.completedDate.hours + ":" + this.completedDate.mins+ ":" + this.completedDate.secs + this.completedDate.zone);
         
         
               
@@ -186,7 +154,7 @@ export class FBIExamPage implements OnInit {
     }
 
     onCreateAnother() {
-        console.log("Another");
+        //console.log("Another");
         this.validateDate();
         //this.validateForm();
         
@@ -258,7 +226,7 @@ export class FBIExamPage implements OnInit {
 
     evidencesSelected(event){
         this.selectedEvidence = event;
-        console.log(this.selectedEvidence);
+        //console.log(this.selectedEvidence);
     }
     
     createExam(enter : string){
@@ -294,17 +262,17 @@ export class FBIExamPage implements OnInit {
             obj._id = this.id;
         }
 
-        console.log(obj);
+        //console.log(obj);
         if(enter == 'save'){
             this.exam.createExam(obj).subscribe(res =>{
-                console.log(res);
+                //console.log(res);
                 this.router.navigate(['./']);
                 window.scrollTo(0, 0); 
             });
         }
         else{
             this.exam.createExam(obj).subscribe(res =>{
-                console.log(res);
+                //console.log(res);
                 this.router.navigate(['./exam/new']);
                 window.location.reload();
                 window.scrollTo(0, 0); 

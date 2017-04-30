@@ -12,7 +12,9 @@ export class WrapperService {
         "exams" : "/elab/v1/exams",
         "ui-exams" : "/elab/v1/ui/exams",
         "caseevidences" : "/elab/v1/caseevidences",
-
+        "examnotes" : "/elab/v1/examnotes",
+        "noteDropDowns" : "/elab/v1/noteDropDowns",
+        "notes" : "/elab/v1/notes",
     };
 
     constructor(private _http: Http){}
