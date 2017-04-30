@@ -58,4 +58,16 @@ export class FbiNotesService {
 
     return this.apiService.call(apiOptions);
   }
+
+  createNote(obj){
+    let apiOptions: any = {
+      name: 'notes',
+      suffix: '/',
+      method: 'POST',
+      oParam: { },
+      body: obj,
+    };
+
+    return this.apiService.call(apiOptions);
+  }
 }  

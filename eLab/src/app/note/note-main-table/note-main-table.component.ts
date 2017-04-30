@@ -9,28 +9,24 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class NoteMainTable implements OnInit{
 
     @Input() type;
-    tableContent = [];
-    dropDownFlag : boolean = false;
+    @Input() knowns;
+    @Input() ques;
     
+    
+    dropDownFlag : boolean = false;
+    examId;
+
     constructor(private router: Router, private route: ActivatedRoute){
 
     }
 
     ngOnInit(){
-        this.tableContent = [
-            {
-                type : "Known",
-                desc : "Description provided for known"
-            },
-            {
-                type : "Question",
-                desc : "Describing the item selected for exam"
-            },
-            {
-                type : "Question",
-                desc : "Describing the item selected for exam"
-            }
-        ]
+        this.route.params.subscribe(param => {
+            //this.id = param['id'];
+            this.examId = param['examId'];
+            //console.log("Note id " + this.id);
+            
+        });
     }
 
     dropDown(){
@@ -51,5 +47,14 @@ export class NoteMainTable implements OnInit{
         this.dropDownFlag = false;
         this.router.navigate(['./notes/qdetails/new']);
     }
-    
+
+    kNote(event){
+        this.router.navigate(['./notes/shoe/kdetails/view/',this.examId,event]);
+        window.scrollTo(0,0);
+    }
+
+    qNote(event){
+        this.router.navigate(['./notes/qdetails/view/',this.examId,event]);
+        window.scrollTo(0,0);
+    }
 }

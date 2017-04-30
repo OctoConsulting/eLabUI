@@ -7,16 +7,16 @@ export const routes: Routes = [
   {
     path: 'notes',
     children : [
-      { path : 'shoe/new', component : FBINotePage},
-      { path : 'shoe/view/:id', component : FBINotePage },
-      { path : 'tire/new', component : FBINotePage},
-      { path : 'tire/view/:id', component : FBINotePage},
-      { path : 'qdetails/new', component : QDetailsPage},
-      { path : 'qdetails/view/:id', component : QDetailsPage},
-      { path : 'shoe/kdetails/new', component : KDetailsPage},
-      { path : 'shoe/kdetails/view/:id', component : KDetailsPage},
-      { path : 'tire/kdetails/new', component : KDetailsPage},
-      { path : 'tire/kdetails/view/:id', component : KDetailsPage},
+      { path : 'shoe/new/:examId', component : FBINotePage},
+      { path : 'shoe/view/:examId/:id', component : FBINotePage },
+      { path : 'tire/new/:examId', component : FBINotePage},
+      { path : 'tire/view/:examId/:id', component : FBINotePage},
+      { path : 'qdetails/new/:examId', component : QDetailsPage},
+      { path : 'qdetails/view/:examId/:id', component : QDetailsPage},
+      { path : 'shoe/kdetails/new/:examId', component : KDetailsPage},
+      { path : 'shoe/kdetails/view/:examId/:id', component : KDetailsPage},
+      { path : 'tire/kdetails/new/:examId', component : KDetailsPage},
+      { path : 'tire/kdetails/view/:examId/:id', component : KDetailsPage},
     ]
   },
 ];
