@@ -270,6 +270,21 @@ export class FBIExamPage implements OnInit {
                 window.scrollTo(0, 0); 
             });
         }
+        else if(enter == 'shoe'){
+            this.exam.createExam(obj).subscribe(res => {
+                //console.log(res);
+                //console.log(res.id);
+                this.router.navigate(['./notes/shoe/new/', res.id]);
+                window.scrollTo(0,0);
+            });
+        }
+        else if(enter == 'tire'){
+            this.exam.createExam(obj).subscribe(res => {
+                //console.log(res.id);
+                this.router.navigate(['./notes/tire/new/', res.id]);
+                window.scrollTo(0,0);
+            });
+        }
         else{
             this.exam.createExam(obj).subscribe(res =>{
                 //console.log(res);
@@ -279,6 +294,23 @@ export class FBIExamPage implements OnInit {
             });
         }
             
+    }
+
+    createNote(event){
+        if(event == 'shoe'){
+            this.validateDate();        
+        
+            if (!this.startDateError && !this.assignDateError && !this.completedDateError) {
+                this.createExam('shoe');
+             }
+        }
+        else{
+            this.validateDate();        
+        
+            if (!this.startDateError && !this.assignDateError && !this.completedDateError) {
+                this.createExam('tire');
+             }
+        }
     }
 
 }

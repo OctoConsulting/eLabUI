@@ -49,7 +49,7 @@ export class FbiExamService {
       body: obj,
     };
 
-    return this.apiService.call(apiOptions, false);
+    return this.apiService.call(apiOptions);
   }
 
 }

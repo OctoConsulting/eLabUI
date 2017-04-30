@@ -1,4 +1,4 @@
-import {Component,OnInit} from '@angular/core';
+import {Component,OnInit,Output,EventEmitter} from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { FbiNotesService } from "../../api-kit/notes/fbi-notes.service";
 
@@ -15,6 +15,7 @@ export class NoteTable implements OnInit{
 
     shoeDetails = [];
     tireDetails = [];
+    @Output() buttonClicked : EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private router: Router, private route: ActivatedRoute, private notes : FbiNotesService){
 
@@ -32,13 +33,24 @@ export class NoteTable implements OnInit{
     }
 
     shoeNote(){
-        this.dropDownFlag = false;
-        this.router.navigate(['./notes/shoe/new']);
+        if(this.path == 'view'){
+            this.dropDownFlag = false;
+            this.router.navigate(['./notes/shoe/new',this.id]);
+        }
+        else{
+            this.buttonClicked.emit('shoe');
+        }
+        
     }
     
     tireNote(){
-        this.dropDownFlag = false;
-        this.router.navigate(['./notes/tire/new']);
+        if(this.path == 'view'){
+            this.dropDownFlag = false;
+            this.router.navigate(['./notes/tire/new',this.id]);
+        }
+        else{
+            this.buttonClicked.emit('tire');
+        }
     }
 
     dropDown(){
@@ -47,9 +59,11 @@ export class NoteTable implements OnInit{
 
     getAllNotes(){
         if(this.path == 'view'){
-            this.notes.getNoteDetails(1,this.id).subscribe(res => {
-                this.shoeDetails = res[0].shoeNotes;
-                this.tireDetails = res[0].tireNotes;
+            this.notes.getNoteDetails(this.id,1).subscribe(res => {
+                if(res.length > 0){
+                    this.shoeDetails = res[0].shoeNotes;
+                    this.tireDetails = res[0].tireNotes;
+                }                
                 //console.log(res[0].shoeNotes);            
             });
         }
@@ -64,24 +78,24 @@ export class NoteTable implements OnInit{
 
 
     viewShoeNote(event){
-        this.router.navigate(['./notes/shoe/view/',event]);
+        this.router.navigate(['./notes/shoe/view/',this.id,event]);
         window.scrollTo(0,0);
     }
 
     viewShoeKNote(event){
-        this.router.navigate(['./notes/shoe/kdetails/view/',event]);
+        this.router.navigate(['./notes/shoe/kdetails/view/',this.id,event]);
         window.scrollTo(0,0);
     }
     viewQuesNote(event){
-        this.router.navigate(['/notes/qdetails/view/',event]);
+        this.router.navigate(['/notes/qdetails/view/',this.id,event]);
         window.scrollTo(0,0);
     } 
     viewTireNote(event){
-        this.router.navigate(['/notes/tire/view/',event]);
+        this.router.navigate(['/notes/tire/view/',this.id,event]);
         window.scrollTo(0,0);
     }
     viewTireKNote(event){
-        this.router.navigate(['/notes/tire/kdetails/view/',event]);
+        this.router.navigate(['/notes/tire/kdetails/view/',this.id,event]);
         window.scrollTo(0,0);
     }
 }

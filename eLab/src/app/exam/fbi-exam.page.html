@@ -116,7 +116,7 @@
         <evidence-table [EvidenceDetails] = "evidences" (evidencesSelected) = "evidencesSelected($event)"></evidence-table>
     </div>-->
     <div class="col-xs-12 col-sm-12 col-md-12 p-3t p-3b">
-        <note-table></note-table>
+        <note-table (buttonClicked) = "createNote($event)"></note-table>
     </div>
     
     
