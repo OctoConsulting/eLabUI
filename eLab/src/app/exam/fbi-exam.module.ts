@@ -9,6 +9,7 @@ import { EvidenceTable } from './evidence-table/evidence-table.component';
 import { NoteTable } from './note-table/note-table.component';
 import { FbiExamService } from '../api-kit/exam/fbi-exam.service';
 import { WrapperService } from '../api-kit/wrapper.service';
+import { FbiNotesService } from "../api-kit/notes/fbi-notes.service";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { WrapperService } from '../api-kit/wrapper.service';
   ],
   providers: [
     FbiExamService,
-    WrapperService
+    WrapperService,
+    FbiNotesService,
   ]
 })
 export class FbiExamModule {

@@ -13,10 +13,10 @@ export const routes: Routes = [
       { path : 'tire/view/:id', component : FBINotePage},
       { path : 'qdetails/new', component : QDetailsPage},
       { path : 'qdetails/view/:id', component : QDetailsPage},
-      { path : 'kdetails/shoe/new', component : KDetailsPage},
-      { path : 'kdetails/shoe/view/:id', component : KDetailsPage},
-      { path : 'kdetails/tire/new', component : KDetailsPage},
-      { path : 'kdetails/tire/view/:id', component : KDetailsPage},
+      { path : 'shoe/kdetails/new', component : KDetailsPage},
+      { path : 'shoe/kdetails/view/:id', component : KDetailsPage},
+      { path : 'tire/kdetails/new', component : KDetailsPage},
+      { path : 'tire/kdetails/view/:id', component : KDetailsPage},
     ]
   },
 ];

@@ -10,7 +10,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 import { QDetailsPage } from './QDetails/qdetails.component';
 import { KDetailsPage } from './KDetails/k-details.component';
 import { EvidenceTable } from './evidence-table/evidence-table.component';
-
+import { FbiNotesService } from '../api-kit/notes/fbi-notes.service';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { EvidenceTable } from './evidence-table/evidence-table.component';
     EvidenceTable
   ],
   providers: [
-    
+    FbiNotesService,
   ]
 })
 export class FbiNoteModule {

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import * as moment from 'moment-timezone';
 import * as $ from 'jquery';
 import { Location } from '@angular/common';
+import { FbiNotesService } from '../api-kit/notes/fbi-notes.service';
 
 @Component({
     selector : 'fbi-note',
@@ -11,47 +12,45 @@ import { Location } from '@angular/common';
 })
 export class FBINotePage implements OnInit{
     path : 'view' | 'new' = 'new';
-    type : 'shoe' | 'tire' = 'tire';
+    type : 'Shoe' | 'Tire' = 'Tire';
 
-    assessmentModel = '';
+    assessmentModel = 0;
     assessmentOptions = [];
 
-    conductedBy = '';
+    conductedBy = 0;
     conductedOptions = [];
 
     startDate = { date: 0, month: 0, year: 0, hours: 0, mins: 0, zone: '' };
     startDateError: boolean = false;
 
-    requestType = '';
+    requestType = [24,25];
     requestOptions = [];
 
-    methodModel = '';
+    methodModel = 0;
     methodOptions = [];
-    
-    constructor( private router: Router, private route: ActivatedRoute, private location: Location){
+    id : number;
+    textData : any;
+
+    constructor( private router: Router, private route: ActivatedRoute, private location: Location, private note : FbiNotesService){
 
     }
+    
 
     ngOnInit(){
         this.determinePath();
         this.determineType();
 
-        this.assessmentModel = 'default';
+        this.assessmentModel = 0;
         this.assessmentOptions = [
-            {value : 'default', label : 'Select Option'},
-            {value : 'Initial Assessment', label : 'Initial Assessment'}
+            {value : 0, label : 'Select Option'},
+            {value : 1, label : 'Initial Assessment'}
         ];
 
-        this.conductedBy = 'default';
-        this.conductedOptions =  [
-            { label : "Select Option", value : "default"},
-            { label: "Juliette Fitzsimmons", value: "Juliette Fitzsimmons" },
-            { label: "Marcus Stanton", value: "Marcus Stanton" },
-            { label: "Tim Miller", value: "Tim Miller" },
-            { label: "Barb McCullen", value: "Barb McCullen" }            
-        ];
-
-         var now = moment();
+        this.route.params.subscribe(param => {
+            this.id = param['id'];
+            //console.log(this.id);
+        });
+        var now = moment();
 
 
         this.startDate = {
@@ -61,24 +60,14 @@ export class FBINotePage implements OnInit{
             hours: now._d.getHours(),
             mins: now._d.getMinutes(),
             zone: moment().format('Z')
-        }
-
-        this.requestType = 'Footwear Comparison';
-        this.requestOptions = [
-            {label : 'Footwear Comparison', value : 'Footwear Comparison'},
-            {label : 'Footwear make/model determination',value : 'Footwear make/model determination'},
-            {label : 'Footwear size determination', value : 'Footwear size determination'},
-            {label : 'Other', value : 'Other'}
-        ];
-
-        this.methodModel = 'default';
-        this.methodOptions = [
-            {label : "Select Option", value : "default"},
-            {label : "QDU Procedures for Conducting Shoe and Tire Tread Examinations", value : "QDU Procedures for Conducting Shoe and Tire Tread Examinations"},
-            {label : "QDU Procedures for Conducting a Footwear Database Search", value : "QDU Procedures for Conducting a Footwear Database Search"}            
-        ]
+        }        
+        
+        this.populateForm();
+        this.getNoteDetails();
     }
-
+    change(){
+        console.log(this.requestType);
+    }
     determinePath() {
         if (/\/view/.test(this.router.url)) {
             this.path = 'view';
@@ -87,8 +76,12 @@ export class FBINotePage implements OnInit{
 
     determineType(){
         if (/\/shoe/.test(this.router.url)) {
-            this.type = 'shoe';
+            this.type = 'Shoe';
         }
+    }
+
+    mapLabelAndValue(val){
+        return {label: val.value, value: val.id};
     }
 
     validateDate() {
@@ -114,6 +107,33 @@ export class FBINotePage implements OnInit{
         window.scrollTo(0,0);
     }
 
-    
+    populateForm(){
+        this.note.getDropDown('Conducted by').subscribe(res => {
+            this.conductedOptions = res.map(this.mapLabelAndValue);
+            this.conductedOptions.unshift({value : 0, label : "Select Option"});
+        });
+        this.note.getDropDown('Request Type',this.type).subscribe(res =>{
+            this.requestOptions = res.map(this.mapLabelAndValue);            
+        });
+        this.note.getDropDown('Method',this.type).subscribe(res => {
+            this.methodOptions = res.map(this.mapLabelAndValue);
+            this.methodOptions.unshift({value : 0, label : 'Select Option'});
+        });
+    }
 
+    getNoteDetails(){
+       if(this.path != 'new'){
+            this.note.getNoteById(this.id).subscribe( res => {
+                console.log(res);
+                this.conductedBy = res.noteData.conductedBy;
+                this.startDate.date = moment(res.createdDate).format("DD");
+                this.startDate.month = moment(res.createdDate).format("MM");
+                this.startDate.year = moment(res.createdDate).format("YYYY");
+                this.methodModel = res.noteData.method;
+                this.textData = res.noteMessage;
+            });
+       }
+       this.assessmentModel = 1; 
+             
+    }
 }
