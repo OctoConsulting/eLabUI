@@ -60,7 +60,7 @@
                 <h4>Request Type</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7 ">
-                <select #select multiple [(ngModel)]="requestType" class = "sel-wid"> 
+                <select #select multiple [(ngModel)]="requestType" class = "sel-wid" (change) = "test()"> 
                     <option *ngFor="let item of requestOptions" [value]="item.value">{{item.label}}</option>
                 </select>
             </div>
@@ -80,7 +80,7 @@
          </div>    
      </div>
      <div class = "col-xs-12 col-sm-12 col-md-12 pd-t-3em">
-         <note-main-table [type] = "type" [knowns] = "tableDetailKnown" [ques] = "tableDetailQues" ></note-main-table>
+         <note-main-table [type] = "type" [knowns] = "tableDetailKnown" [ques] = "tableDetailQues" (buttonClicked) = "kqButton($event)"></note-main-table>
     </div>
     <div class = "col-xs-12 col-sm-12 col-md-12 row pd-t-3em pd-b-3em">
         <div class="col-xs-1 col-sm-2 col-md-2 nl-sp"></div>
@@ -94,12 +94,19 @@
             <input  type = "checkbox" name = "item_check" [(ngModel)] = "markComplete"><span>&nbsp;Mark as Completed</span>
         </div>
     </div>    
-    <div class = "col-xs-12 col-sm-12 col-md-12 pd-b-3em">
+    <div class = "col-xs-12 col-sm-12 col-md-12 pd-b-1em">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-8 col-md-8"> 
             <button type="button" class="btn btn-primary bt-width" (click) = "onSave()">SAVE</button>&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-danger bt-width" (click) = "onCancel()">CANCEL</button>
         </div>    
+    </div>
+    <div class = "col-xs-12 col-sm-12 col-md-12 pd-b-3em">
+        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <span>Create Another</span>
+            <input type='checkbox' [(ngModel)]="createAnother" (change)="onCreateAnother()">
+       </div>     
     </div>                       
 </div>
     

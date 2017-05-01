@@ -40,7 +40,7 @@
                     <i *ngIf = "note.initialAssessmentNote.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Shoe Note</h6>
                 </div>
                 <div class="col-xs-12 col-sm-7 col-md-7">
-                    <h6>{{note.initialAssessmentNote.noteMessage}}</h6>
+                    <h6 [innerHTML]="note.initialAssessmentNote.noteMessage"></h6>
                 </div>
             </div>
             <div *ngFor="let known of note.knowns let odd = odd">
@@ -49,7 +49,7 @@
                         <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Known Note</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
-                        <h6>{{known.noteMessage}}</h6>
+                        <h6 [innerHTML] = "known.noteMessage"></h6>
                     </div>
                     <div class = "col-xs-12 col-sm-2 col-md-2">
                         <h6>{{known.evidences}}</h6>
@@ -62,7 +62,7 @@
                         <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Question Note</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
-                        <h6>{{ques.noteMessage}}</h6>
+                        <h6 [innerHTML] = "ques.noteMessage" ></h6>
                     </div>
                     <div class = "col-xs-12 col-sm-2 col-md-2">
                         <h6>{{ques.evidences}}</h6>
@@ -85,7 +85,7 @@
                         <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Known Note</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
-                        <h6>{{known.noteMessage}}</h6>
+                        <h6 [innerHTML] = "known.noteMessage" ></h6>
                     </div>
                     <div class = "col-xs-12 col-sm-2 col-md-2">
                         <h6>{{known.evidences}}</h6>
@@ -98,7 +98,7 @@
                         <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Question Note</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
-                        <h6>{{ques.noteMessage}}</h6>
+                        <h6 [innerHTML] = "ques.noteMessage"></h6>
                     </div>
                     <div class = "col-xs-12 col-sm-2 col-md-2">
                         <h6>{{ques.evidences}}</h6>

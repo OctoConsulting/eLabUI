@@ -33,24 +33,14 @@ export class NoteTable implements OnInit{
     }
 
     shoeNote(){
-        if(this.path == 'view'){
-            this.dropDownFlag = false;
-            this.router.navigate(['./notes/shoe/new',this.id]);
-        }
-        else{
-            this.buttonClicked.emit('shoe');
-        }
+        this.dropDownFlag = false;
+        this.buttonClicked.emit('shoe');
         
     }
     
-    tireNote(){
-        if(this.path == 'view'){
-            this.dropDownFlag = false;
-            this.router.navigate(['./notes/tire/new',this.id]);
-        }
-        else{
-            this.buttonClicked.emit('tire');
-        }
+    tireNote(){                  
+        this.dropDownFlag = false;
+        this.buttonClicked.emit('tire');       
     }
 
     dropDown(){

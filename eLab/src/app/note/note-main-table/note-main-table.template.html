@@ -31,7 +31,7 @@
                      <i *ngIf = "content.markedComplete == false" class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Known Note</h6>
                 </div>
                 <div class="col-xs-12 col-sm-7 col-md-7">
-                    <h6>{{content.noteMessage}}</h6>
+                    <h6 [innerHTML] = "content.noteMessage"></h6>
                 </div>
                 <div class = "col-xs-12 col-sm-2 col-md-2">
                     <h6>{{content.evidences}}</h6>
@@ -44,7 +44,7 @@
                      <i *ngIf = "content.markedComplete == false" class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Question Note</h6>
                 </div>
                 <div class="col-xs-12 col-sm-7 col-md-7">
-                    <h6>{{content.noteMessage}}</h6>
+                    <h6 [innerHTML] = "content.noteMessage"></h6>
                 </div>
                 <div class = "col-xs-12 col-sm-2 col-md-2">
                     <h6>{{content.evidences}}</h6>

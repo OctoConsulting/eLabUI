@@ -23,7 +23,7 @@ export class FBINotePage implements OnInit{
     startDate = { date: '', month: '', year: '', hours: '', mins: '',secs: '', zone: '' };
     startDateError: boolean = false;
 
-    requestType = [];
+    requestType : any;
     requestOptions = [];
 
     methodModel = 0;
@@ -59,7 +59,7 @@ export class FBINotePage implements OnInit{
             //console.log("Exam id " + this.examId);
         });
 
-        
+        this.requestType =[];
         
 
 
@@ -113,14 +113,26 @@ export class FBINotePage implements OnInit{
     onSave(){
         this.validateDate();
         if(this.startDateError === false){
-            this.location.back();
-            window.scrollTo(0,0);
+            this.postNote('save');   
         }
     }
 
     onCancel(){
         this.location.back();
         window.scrollTo(0,0);
+    }
+
+    onCreateAnother(){
+        this.validateDate();
+        if(this.startDateError === false){
+            this.postNote('another');   
+        }
+    }
+    kqButton(event){
+        this.validateDate();
+        if(this.startDateError === false){
+            this.postNote(event);   
+        }  
     }
 
     populateForm(){
@@ -148,8 +160,11 @@ export class FBINotePage implements OnInit{
                 this.methodModel = res.noteData.method;
                 this.textData = res.noteMessage;
                 this.markComplete = res.markedComplete;
+                this.requestType = JSON.parse("[" + res.noteData.requestType + "]");;
+                
             });
 
+            
             this.note.getNoteDetails(this.examId,1,this.type).subscribe( res => {
                 //console.log(res);
                 if(this.type =='Shoe' && res.length > 0){
@@ -179,21 +194,26 @@ export class FBINotePage implements OnInit{
     }
 
     postNote(enter : string){
-
                
         let objPost : any = {
             caseId : 1,
             examId : this.examId,
             markedComplete : this.markComplete,
             noteType : 1,
-            itemType : this.type,
             noteMessage : this.textData,
             createdDate : "",
             noteData : {
                 conductedBy : this.conductedBy,
                 method : this.methodModel,
-                requestType: this.requestType
+                requestType: this.requestType.toString()
             }
+        }
+        
+        if(this.type == 'Shoe'){
+            objPost.itemType = 'shoe';
+        }
+        else{
+            objPost.itemType = 'tire';
         }
 
         if(this.startDateError == false){
@@ -206,10 +226,54 @@ export class FBINotePage implements OnInit{
             objPost.id = this.id;
         }
 
+        console.log(objPost);
         if(enter == 'save'){
-            
+            this.note.createNote(objPost).subscribe(res => {
+                console.log(res);
+                this.location.back();
+                window.scrollTo(0,0);
+            });            
+        }
+        else if (enter == 'another'){
+            this.note.createNote(objPost).subscribe(res => {
+                console.log(res);
+                if(this.type == 'Shoe'){
+                    this.router.navigate(['./notes/shoe/new',this.examId]);
+                    window.location.reload();
+                }
+                else{
+                    this.router.navigate(['./notes/tire/new',this.examId]);
+                    window.location.reload();
+                }
+                
+            });
+        }
+        else if(enter == 'ktype'){
+            this.note.createNote(objPost).subscribe(res => {
+                console.log(res);
+                if(this.type == 'Shoe'){
+                    this.router.navigate(['./notes/shoe/kdetails/new',this.examId]);
+                    window.scrollTo(0,0);
+                }
+                else{
+                    this.router.navigate(['./notes/tire/kdetails/new',this.examId]);
+                    window.scrollTo(0,0);
+                }
+                
+            });
+        }
+        else if(enter == 'qtype'){
+           this.note.createNote(objPost).subscribe(res => {
+                console.log(res);
+                this.router.navigate(['./notes/qdetails/new',this.examId]);
+                window.scrollTo(0,0);
+            }); 
         }
 
     } 
-        
+
+    test(){
+        //console.log(this.requestType);
+    } 
+
 }

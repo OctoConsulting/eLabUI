@@ -36,7 +36,8 @@ export class FBIExamPage implements OnInit {
     now = moment();
     evidences = [];
     selectedEvidence = [];  
-    id : number;  
+    id : number;
+      
     constructor(private router: Router, private route: ActivatedRoute,private exam : FbiExamService) {
 
     }
