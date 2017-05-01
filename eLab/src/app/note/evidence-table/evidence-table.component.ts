@@ -33,7 +33,7 @@ export class EvidenceTable implements OnInit{
                 isShoe : true,
             },
             {
-                selected : true,
+                selected : false,
                 id : 3,
                 name : "Evidence Name 3",
                 isktype : true,
@@ -50,6 +50,11 @@ export class EvidenceTable implements OnInit{
 
     }
 
-    
+    showTypeLabels(content) {
+        var shoeTireLabel = $("#shoeTireLabel" + content.id)
+        var typeLabel = $("#typeLabel" + content.id);
+        shoeTireLabel.toggleClass('hidden');
+        typeLabel.toggleClass('hidden');
+    }    
 
 }

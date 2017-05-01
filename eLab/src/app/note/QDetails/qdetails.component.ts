@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 
 export class QDetailsPage implements OnInit{
 	path: 'view' | 'new' = 'new';
+    whichDetails : 'qDetails';
 
 	QtypeModel: number = 0;
 	Qtype = [];

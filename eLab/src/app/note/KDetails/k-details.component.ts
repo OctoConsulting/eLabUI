@@ -11,6 +11,7 @@ import { FbiNotesService } from '../../api-kit/notes/fbi-notes.service';
 export class KDetailsPage implements OnInit{
     path : 'view' | 'new' = 'new';
     type : 'shoe' | 'tire' = 'tire';
+    whichDetails : 'kDetails'; 
 
     KtypeModel : number = 0;
     Ktype = [];
