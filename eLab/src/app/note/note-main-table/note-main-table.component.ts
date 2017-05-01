@@ -1,4 +1,4 @@
-import {Component,OnInit,Input} from '@angular/core';
+import {Component,OnInit,Input,Output,EventEmitter} from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -15,6 +15,8 @@ export class NoteMainTable implements OnInit{
     
     dropDownFlag : boolean = false;
     examId;
+
+    @Output() buttonClicked : EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private router: Router, private route: ActivatedRoute){
 
@@ -35,17 +37,12 @@ export class NoteMainTable implements OnInit{
 
     onKDetail(){
         this.dropDownFlag = false;
-        if(this.type == 'shoe'){
-            this.router.navigate(['./notes/kdetails/shoe/new']);
-        }
-        else{
-            this.router.navigate(['./notes/kdetails/tire/new']);
-        }
+        this.buttonClicked.emit('ktype');
     }
 
     onQDetail(){
         this.dropDownFlag = false;
-        this.router.navigate(['./notes/qdetails/new']);
+        this.buttonClicked.emit('qtype');
     }
 
     kNote(event){

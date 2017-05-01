@@ -1,6 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Location } from '@angular/common';
+import { FbiNotesService } from '../../api-kit/notes/fbi-notes.service';
 
 @Component({
     selector : 'k-details',
@@ -24,44 +25,17 @@ export class KDetailsPage implements OnInit{
     PovType =[];
     textArea = '';
     textArea1 = '';
-    constructor(private router: Router, private route: ActivatedRoute, private location: Location){
+    constructor(private router: Router, private route: ActivatedRoute, private location: Location,private notes: FbiNotesService){
 
     }
 
     ngOnInit(){
         this.determinePath();
                     
-            this.Ktype = [
-                {value : 0 ,label : "Select Option"},
-                {value : 1, label : "Original Footwear"},
-                {value : 2, label : "Footwear Test Impression"},
-                {value : 3, label : "Photo/Print Out"},
-                {value : 4, label : "Disc"},
-                {value : 5, label : "Digital Image"},
-                {value : 6, label : "Other"}
-            ];
+        this.populateForm();          
 
-            if(this.type == 'shoe'){
-                this.Kstyle = [
-                    {value : 0, label : "Select Option"},
-                    {value : 1, label : "Sandal"},
-                    {value : 2, label : "Shoe"},
-                    {value : 3, label : "Boot"}
-                ];
-            }
-
-            if(this.type == 'tire'){
-                this.PovType = [
-                    {value : 0, label : "Select Option"},
-                    {value : 1, label : "Driver Front"},
-                    {value : 2, label : "Passenger Front"},
-                    {value : 3, label : "Driver Rear"},
-                    {value : 4, label : "Passanger Rear"},
-                    {value : 5, label : "Spare"},
-                    {value : 6, label : "Unknown"}
-                ]
-            }            
-        }
+                        
+    }        
 
     determinePath(){
         if (/\/view/.test(this.router.url)) {
@@ -73,6 +47,10 @@ export class KDetailsPage implements OnInit{
         }
     }
 
+    mapLabelAndValue(val){
+        return {label: val.value, value: val.id};
+    }
+
     onSave(){
         this.location.back();
         window.scrollTo(0,0);
@@ -81,5 +59,30 @@ export class KDetailsPage implements OnInit{
     onCancel(){
         this.location.back();
         window.scrollTo(0,0);
+    }
+
+    populateForm(){
+        if(this.type == 'shoe'){
+            this.notes.getDropDown('K Item Type','Shoe').subscribe(res =>{
+                this.Ktype = res.map(this.mapLabelAndValue);
+                this.Ktype.unshift({value : 0 , label : "Select Option"});
+            });
+
+            this.notes.getDropDown('Style','Shoe').subscribe( res => {
+                this.Kstyle = res.map(this.mapLabelAndValue);
+                this.Kstyle.unshift({value : 0 , label : "Select Option"});
+            });
+        }
+        else{
+            this.notes.getDropDown('K Item Type','Tire').subscribe(res => {
+                this.Ktype = res.map(this.mapLabelAndValue);
+                this.Ktype.unshift({value : 0 , label : "Select Option"});
+            });
+
+            this.notes.getDropDown('Vehicle Position').subscribe(res =>{
+                this.PovType = res.map(this.mapLabelAndValue);
+                this.PovType.unshift({value : 0 , label : "Select Option"});
+            })
+        }
     }
 }
