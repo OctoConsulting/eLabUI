@@ -1,4 +1,7 @@
 <div class = "sidenav">
-  <div><h4 class = "p-1em" [ngClass] = "path === 'details' ? 'picked' : 'unpicked'"  (click) = "OnClick('details')">Case Studies</h4></div>
-  <h4 class = "p-1em" [ngClass] = "path === 'files' ? 'picked' : 'unpicked'" (click) = "OnClick('files')">Case Files</h4>
+  <h4 class = "p-1em" [ngClass] = "path === 'details' ? 'picked' : 'unpicked'"  (click) = "OnClick('details')">
+    <a href='/'>Case Details</a>
+  </h4>
+  <h4 class = "p-1em" [ngClass] = "path === 'files' ? 'picked' : 'unpicked'" (click) = "OnClick('files')">   <a href='#'>Case Files</a>
+  </h4>
 <div>
