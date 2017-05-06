@@ -52,8 +52,12 @@
   font-weight:bold;
 }
 
-.tx-align{
-    text-align: right;
+.tx-align-left{
+  text-align: left;
+}
+
+.txt-align-right{
+  text-align: right;
 }
 
 .main_sec {
