@@ -4,7 +4,7 @@
 
 .fbi-header-background {
     background: url('../../assets/fbi-header.png') no-repeat center center;
-    width: 300%;
+    width: 100%;
     background-size: cover;
 }
 
