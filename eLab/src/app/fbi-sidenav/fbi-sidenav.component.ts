@@ -24,7 +24,11 @@ export class FBISideNav implements OnInit{
   /* When the user clicks on the button, 
   toggle between hiding and showing the dropdown content */
   showCaseDetailsDropdown() {
-    $(".dropdown-content").toggleClass('hidden');
+    $("#caseDetailsDropdown").toggleClass('hidden');
+  }
+
+  showCaseFilesDropdown() {
+    $('#caseFilesDropdown').toggleClass('hidden');
   }
   
   /* 

@@ -8,8 +8,12 @@
     <a href='/evidence/new'>Create Evidence</a>
     <a href='/exam/new'>Create Exam</a>
   </li>
-  <li class="nav-item btn btn-primary btn-lg">
+  <li (click)='showCaseFilesDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
       Case Files
+  </li>
+  <li id='caseFilesDropdown' class='dropdown-content nav-item btn btn-lg hidden dropbtn'>
+    <a href='#'>Under</a>
+    <a href='#'>Construction</a>
   </li>
 </ul>
 <div>
