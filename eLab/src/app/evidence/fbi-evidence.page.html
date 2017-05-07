@@ -25,7 +25,7 @@
       <div class='col-xs-12 col-sm-2 col-md-2'>
         <h4 class="tx-align">Type</h4>
       </div>
-      <div class="col-xs-12 col-sm-3 col-md-3">
+      <div class='col-xs-12 col-sm-4 col-md-4'>
         <select class='form-control' id='evidence_type' [(ngModel)]="typeModel" (change)="changeParentOptions()">
               <option *ngFor = "let type of evidenceTypes" [value]="type.value">{{type.label}}</option>              
         </select>
@@ -48,7 +48,7 @@
       <div class="col-xs-12 col-sm-3 col-md-3">
         <h4 class="tx-align">Parent Evidence</h4>
       </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
+      <div class='col-xs-12 col-sm-4 col-md-4'>
         <select class='form-control' id='evidence_parent' [(ngModel)]="ParentEvidenceModel">
             <option *ngFor = "let petype of parentEvidences" [value]='petype.value'>{{petype.label}}</option>
         </select>
@@ -63,7 +63,7 @@
       <div class='col-xs-12 col-sm-2 col-md-2'>
         <h4 class="tx-align">Name</h4>
       </div>
-      <div class='col-xs-12 col-sm-3 col-md-3'>
+      <div class='col-xs-12 col-sm-4 col-md-4'>
         <input type='text' class='form-control' id='evidence_input_field' placeholder='Enter Evidence Name' [value]="evidenceName"
           [(ngModel)]="evidenceName">
       </div>
@@ -82,7 +82,6 @@
   </div>
   <!-- End name and Analysis -->
   <!-- Save and Cancel Buttons -->
-  <div class='col-xs-12 col-sm-12 col-md-12 pd-t-1em'>
     <div class='col-xs-1 col-sm-2 col-md-2'></div>
     <div class='col-xs-10 col-sm-8 col-md-8'>
       <div class='col-xs-12 col-sm-12 col-md-12'>
@@ -90,11 +89,12 @@
         <button class='btn btn-danger bt-width' (click)="onCancel()">Cancel</button>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-12 pd-t-05em">
+        <h5>
         <span>Create Another</span>
         <input type='checkbox' [(ngModel)]="createAnother" (change)="onCreateAnother()">
+        </h5>
       </div>
     </div>
-  </div>
   <!-- End Save and Cancel -->
 </div>
 <br>

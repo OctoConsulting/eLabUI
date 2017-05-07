@@ -7,8 +7,8 @@
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Name</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
@@ -20,23 +20,21 @@
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Type</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
-                <div>
-                    <select class="form-control" #select [(ngModel)]="selectModel">
-                        <option *ngFor = "let option of examType" [value]="option.value">&nbsp;&nbsp;{{option.label}}</option>                        
-                    </select>
-                </div>                
+                <select class="form-control" #select [(ngModel)]="selectModel">
+                    <option *ngFor = "let option of examType" [value]="option.value">&nbsp;&nbsp;{{option.label}}</option>                        
+                </select>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Examiners</h4>
             </div>
             <div class="col-xs-12 col-sm-7 col-md-7">
@@ -48,11 +46,11 @@
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Assigned Date</h4>
             </div>
-            <div class="col-xs-12 col-sm-7 col-md-7 ">
+            <div class="col-xs-12 col-sm-8 col-md-8">
                 <div [ngClass]="assignDateError ? 'has-error' : ''">
                     <div *ngIf="assignDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
                     <div class="col-xs-2 col-sm-2 col-md-2">
@@ -70,11 +68,11 @@
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Start Date</h4>
             </div>
-            <div class="col-xs-12 col-sm-7 col-md-7 ">
+            <div class="col-xs-12 col-sm-8 col-md-8">
                 <div  [ngClass]="startDateError ? 'has-error' : ''">
                     <div *ngIf="startDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
                     <div class="col-xs-2 col-sm-2 col-md-2">
@@ -92,11 +90,11 @@
     </div>
     <div class="row">
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
-        <div class="col-xs-11 col-sm-8 col-md-8 pd-L-4em">
-            <div class="col-xs-12 col-sm-3 col-md-3 tx-align">
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <div class="col-xs-12 col-sm-3 col-md-3 tx-align-right">
                 <h4>Completed Date</h4>
             </div>
-            <div class="col-xs-12 col-sm-7 col-md-7 ">
+            <div class="col-xs-12 col-sm-8 col-md-8">
                 <div  [ngClass]="completedDateError ? 'has-error' : ''">
                     <div *ngIf="completedDateError === true"><label class="control-label" for="inputError">Please enter a valid Date (MM-DD-YYYY)</label></div>
                     <div class="col-xs-2 col-sm-2 col-md-2">
@@ -130,8 +128,10 @@
             <i class="fa fa-check-square ft-15" aria-hidden="true"></i><span>&nbsp;Create Another</span>
         </div>-->
         <div class="col-xs-11 col-sm-10 col-md-10 p-1t p-3b">
+          <h5>
             <span>Create Another</span>
-            <input type='checkbox' [disabled]="viewMode" [(ngModel)]="createAnother" (change)="onCreateAnother()">
+            <input type='checkbox' [(ngModel)]="createAnother" (change)="onCreateAnother()">
+          </h5>
         </div>
     
 </div>

@@ -1,4 +1,19 @@
 <div class = "sidenav">
-  <div><h4 class = "p-1em" [ngClass] = "path === 'details' ? 'picked' : 'unpicked'"  (click) = "OnClick('details')">Case Studies</h4></div>
-  <h4 class = "p-1em" [ngClass] = "path === 'files' ? 'picked' : 'unpicked'" (click) = "OnClick('files')">Case Files</h4>
+ <ul class="nav flex-column">
+  <li (click)='showCaseDetailsDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
+      Case Details
+  </li>
+  <li id='caseDetailsDropdown' class='dropdown-content nav-item btn btn-lg hidden'>
+    <a href='/'>Home</a>
+    <a href='/evidence/new'>Create Evidence</a>
+    <a href='/exam/new'>Create Exam</a>
+  </li>
+  <li (click)='showCaseFilesDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
+      Case Files
+  </li>
+  <li id='caseFilesDropdown' class='dropdown-content nav-item btn btn-lg hidden dropbtn'>
+    <a href='#'>Under</a>
+    <a href='#'>Construction</a>
+  </li>
+</ul>
 <div>

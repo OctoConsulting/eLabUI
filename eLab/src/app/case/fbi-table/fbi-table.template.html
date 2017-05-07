@@ -2,11 +2,15 @@
   <div class = "col-xs-1 col-sm-2 col-md-2"></div>
   <div class="col-xs-10 col-sm-8 col-md-8">
     <div class = "col-xs-12 col-sm-12 col-md-12 heading">
-      <h4>{{heading.tableHeading}}</h4>
-    </div>
-    <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
-      <!--<div class = "btn-place" routerLink="../evidence/new"><i class="fa fa-plus-square" aria-hidden="true"></i><span class = "icon">&nbsp;{{heading.addButton}}</span></div>-->
-      <a (click) = "evidenceBtn()" class="btn btn-primary pd-bt-05">{{heading.addButton}}</a>
+      <h4>
+        {{heading.tableHeading}}
+        <span>
+          <a (click) = "evidenceBtn()" class="btn btn-primary btn-sm pd-bt-05">      
+          New
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </a>
+        </span>
+      </h4>
     </div>
     <div class= "col-xs-12 col-sm-12 col-md-12 table-heading">
       <div *ngFor = "let head of heading.mainHeading">
