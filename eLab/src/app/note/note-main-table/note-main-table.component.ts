@@ -11,10 +11,12 @@ export class NoteMainTable implements OnInit{
     @Input() type;
     @Input() knowns;
     @Input() ques;
+    @Input() viewMode;
     
     
     dropDownFlag : boolean = false;
     examId;
+    initialId;
 
     @Output() buttonClicked : EventEmitter<any> = new EventEmitter<any>();
 
@@ -26,7 +28,7 @@ export class NoteMainTable implements OnInit{
         this.route.params.subscribe(param => {
             //this.id = param['id'];
             this.examId = param['examId'];
-            //console.log("Note id " + this.id);
+            this.initialId = param['id'];
             
         });
     }
@@ -36,17 +38,23 @@ export class NoteMainTable implements OnInit{
     }
 
     onKDetail(){
-        this.dropDownFlag = false;
-        this.buttonClicked.emit('ktype');
+        if(this.viewMode == false){
+            this.dropDownFlag = false;
+            this.buttonClicked.emit('ktype');
+        }
+        
     }
 
     onQDetail(){
-        this.dropDownFlag = false;
-        this.buttonClicked.emit('qtype');
+        if(this.viewMode == false){
+            this.dropDownFlag = false;
+            this.buttonClicked.emit('qtype');
+        }
+        
     }
 
     kNote(event){
-        this.router.navigate(['./notes/shoe/kdetails/view/',this.examId,event]);
+        this.router.navigate(['./notes/'+this.type.toLowerCase()+'/kdetails/view/',this.examId,event]);
         window.scrollTo(0,0);
     }
 

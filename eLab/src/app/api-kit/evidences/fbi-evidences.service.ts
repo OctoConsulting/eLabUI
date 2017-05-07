@@ -81,4 +81,15 @@ export class FbiEvidenceService {
       return this.apiService.call(apiOptions,false);
   }
 
+  getAllEvidences(caseID:number, examID:number, noteID:number){
+      let apiOptions : any = {
+          name: 'evidences',
+          suffix : '',
+          method: 'GET',
+          oParam : {caseID, examID, noteID}
+      }
+
+      return this.apiService.call(apiOptions);
+  }
+
 }

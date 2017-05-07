@@ -1,4 +1,5 @@
 import {Component,OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector : 'fbi-sidenav',
@@ -8,7 +9,7 @@ import {Component,OnInit} from '@angular/core';
 export class FBISideNav implements OnInit{
 
   path : 'details' | 'files' = 'details';
-  constructor(){
+  constructor(private router: Router){
 
   }
 
@@ -18,6 +19,8 @@ export class FBISideNav implements OnInit{
 
   OnClick(event){
     this.path = event;
+    if(event == 'details')
+      this.router.navigate(['./']);
     //console.log(event);
   }
 }

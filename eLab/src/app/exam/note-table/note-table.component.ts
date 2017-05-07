@@ -1,4 +1,4 @@
-import {Component,OnInit,Output,EventEmitter} from '@angular/core';
+import {Component,OnInit,Output,EventEmitter,Input} from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { FbiNotesService } from "../../api-kit/notes/fbi-notes.service";
 
@@ -15,6 +15,7 @@ export class NoteTable implements OnInit{
 
     shoeDetails = [];
     tireDetails = [];
+    @Input() viewMode;
     @Output() buttonClicked : EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private router: Router, private route: ActivatedRoute, private notes : FbiNotesService){
@@ -34,13 +35,15 @@ export class NoteTable implements OnInit{
 
     shoeNote(){
         this.dropDownFlag = false;
-        this.buttonClicked.emit('shoe');
+        if(!this.viewMode)
+            this.buttonClicked.emit('shoe');
         
     }
     
     tireNote(){                  
         this.dropDownFlag = false;
-        this.buttonClicked.emit('tire');       
+        if(!this.viewMode)
+            this.buttonClicked.emit('tire');       
     }
 
     dropDown(){

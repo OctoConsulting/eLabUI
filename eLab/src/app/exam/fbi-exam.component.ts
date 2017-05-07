@@ -37,6 +37,7 @@ export class FBIExamPage implements OnInit {
     evidences = [];
     selectedEvidence = [];  
     id : number;
+    viewMode : boolean = false;
       
     constructor(private router: Router, private route: ActivatedRoute,private exam : FbiExamService) {
 
@@ -53,6 +54,7 @@ export class FBIExamPage implements OnInit {
         })
 
         this.getExamDetails();
+        console.log(this.viewMode);
 
         
     }
@@ -165,6 +167,14 @@ export class FBIExamPage implements OnInit {
             
     }
 
+    setViewMode(endDate : Date){
+        
+        if(endDate != null && new Date(endDate) < new Date())
+            this.viewMode = true;
+        else
+            this.viewMode = false;
+    }
+
     getExamDetails(){
         if(this.path == 'new'){
             this.exam.getExamPageDetails(this.path).subscribe(res => {
@@ -216,9 +226,11 @@ export class FBIExamPage implements OnInit {
                     this.startDate.year = moment(res.startDate).format("YYYY");
                 }
                 if(res.endDate){
+                    
                     this.completedDate.date = moment(res.endDate).format("DD");
                     this.completedDate.month = moment(res.endDate).format("MM");
                     this.completedDate.year = moment(res.endDate).format("YYYY");  
+                    this.setViewMode(res.endDate);
                 }
                 
             });
@@ -260,10 +272,10 @@ export class FBIExamPage implements OnInit {
         }
 
         if(this.path == 'view'){
-            obj._id = this.id;
+            obj.id = this.id;
         }
 
-        //console.log(obj);
+        console.log(obj);
         if(enter == 'save'){
             this.exam.createExam(obj).subscribe(res =>{
                 //console.log(res);
@@ -272,19 +284,30 @@ export class FBIExamPage implements OnInit {
             });
         }
         else if(enter == 'shoe'){
-            this.exam.createExam(obj).subscribe(res => {
-                //console.log(res);
+           if(this.id == null){
+               this.exam.createExam(obj).subscribe(res => {
                 //console.log(res.id);
                 this.router.navigate(['./notes/shoe/new/', res.id]);
                 window.scrollTo(0,0);
             });
+           } else {
+               this.router.navigate(['./notes/shoe/new/', this.id]);
+               window.scrollTo(0,0);
+           }
+            
         }
         else if(enter == 'tire'){
-            this.exam.createExam(obj).subscribe(res => {
+            
+            if(this.id == null){
+               this.exam.createExam(obj).subscribe(res => {
                 //console.log(res.id);
                 this.router.navigate(['./notes/tire/new/', res.id]);
                 window.scrollTo(0,0);
             });
+           } else {
+               this.router.navigate(['./notes/tire/new/', this.id]);
+               window.scrollTo(0,0);
+           }
         }
         else{
             this.exam.createExam(obj).subscribe(res =>{

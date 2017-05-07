@@ -18,13 +18,13 @@
     <div *ngFor = "let content of evidenceContainer let i = index">
       <div class= "col-xs-12 col-sm-12 col-md-12 table-heading bg-grey"  >
         <div class = "col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewEvidence(content.id)">
-          <h6>{{checkEvidenceType(content.evidenceType)}}</h6>
+          <h6 *ngIf="content._id>0">{{checkEvidenceType(content.evidenceType)}}</h6>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
-          <h6>{{content._id}}</h6>
+          <h6 *ngIf="content._id>0">{{content._id}}</h6>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
-          <h6>{{content.containerName}}</h6>
+          <h6 *ngIf="content._id>0">{{content.containerName}}</h6>
         </div>
         <div class = "col-xs-12 col-sm-3 col-md-3">
         </div>

@@ -61,7 +61,7 @@
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <input type="text" class="form-control p-6t" maxlength=2 [(ngModel)]="assignDate.date" [attr.placeholder]="'DD'">
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2">
+                    <div class="col-xs-2 col-sm-2 col-md-3">
                         <input type="text" class="form-control p-6t" maxlength=4 [(ngModel)]="assignDate.year" [attr.placeholder]="'YYYY'">
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <input type="text" class="form-control p-6t" maxlength=2 [(ngModel)]="startDate.date" [attr.placeholder]="'DD'">
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2">
+                    <div class="col-xs-2 col-sm-2 col-md-3">
                         <input type="text" class="form-control p-6t" maxlength=4 [(ngModel)]="startDate.year" [attr.placeholder]="'YYYY'">
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="col-xs-2 col-sm-2 col-md-2">
                         <input type="text" class="form-control p-6t" maxlength=2 [(ngModel)]="completedDate.date" [attr.placeholder]="'DD'">
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2">
+                    <div class="col-xs-2 col-sm-2 col-md-3">
                         <input type="text" class="form-control p-6t" maxlength=4 [(ngModel)]="completedDate.year" [attr.placeholder]="'YYYY'">
                     </div>
                 </div>
@@ -116,13 +116,13 @@
         <evidence-table [EvidenceDetails] = "evidences" (evidencesSelected) = "evidencesSelected($event)"></evidence-table>
     </div>-->
     <div class="col-xs-12 col-sm-12 col-md-12 p-3t p-3b">
-        <note-table (buttonClicked) = "createNote($event)"></note-table>
+        <note-table (buttonClicked) = "createNote($event)" [viewMode] = "viewMode"></note-table>
     </div>
     
     
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-11 col-sm-10 col-md-10">
-            <button type="button" class="btn btn-primary bt-width" (click)="OnSave()">SAVE</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary bt-width" [disabled]="viewMode" (click)="OnSave()">SAVE</button>&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-danger bt-width" (click)="OnCancel()">CANCEL</button>
         </div>
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
@@ -131,7 +131,7 @@
         </div>-->
         <div class="col-xs-11 col-sm-10 col-md-10 p-1t p-3b">
             <span>Create Another</span>
-            <input type='checkbox' [(ngModel)]="createAnother" (change)="onCreateAnother()">
+            <input type='checkbox' [disabled]="viewMode" [(ngModel)]="createAnother" (change)="onCreateAnother()">
         </div>
     
 </div>

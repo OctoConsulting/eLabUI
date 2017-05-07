@@ -1,4 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
+import { FbiEvidenceService } from '../../api-kit/evidences/fbi-evidences.service';
+
+
 
 @Component({
     selector : 'evidence-table',
@@ -8,48 +11,48 @@ import {Component, OnInit, Input} from '@angular/core';
 export class EvidenceTable implements OnInit{
 
     evidenceDetails = [];
-    constructor(){
-
+    evidences : string;
+    constructor(private evidence: FbiEvidenceService){
+        
     }
 
     @Input() path;
     @Input() details;
+    @Input() noteId;
+    @Input() examId;
 
     ngOnInit(){
+        
 
-        this.evidenceDetails = [
-            {
-                selected : false,
-                id : 1,
-                name : "Evidence Name 1",
-                isktype : false,
-                isShoe : false,
-            },
-            {
-                selected : false,
-                id : 2,
-                name : "Evidence Name 2",
-                isktype : false,
-                isShoe : true,
-            },
-            {
-                selected : true,
-                id : 3,
-                name : "Evidence Name 3",
-                isktype : true,
-                isShoe : false,
-            },
-            {
-                selected : false,
-                id : 4,
-                name : "Evidence Name 4",
-                isktype : false,
-                isShoe : true,
-            }
-        ]
+         this.getAllEvidences();
 
     }
 
+    getAllEvidences() {
+        this.evidence.getAllEvidences(1,this.examId,this.noteId).subscribe(res => {
+            
+            this.evidenceDetails = res;
+
+            if(this.evidences){
+                let updatedDetails = [];
+                let evidenceList = this.evidences.split(',');
+                for (let entry of this.evidenceDetails) {
+                    for(let evidence of evidenceList){
+                        if(entry._id == evidence){
+                            entry.selected = true;
+                        }
+                    }
+                    updatedDetails.push(entry);
+                }
+                this.evidenceDetails = updatedDetails;
+            } 
+        });        
+
+    }
+
+    setEvidences(evidences : string){
+        this.evidences = evidences;
+    }
     
 
 }

@@ -4,6 +4,7 @@ import * as moment from 'moment-timezone';
 import * as $ from 'jquery';
 import { Location } from '@angular/common';
 import { FbiNotesService } from '../api-kit/notes/fbi-notes.service';
+import { FbiExamService } from '../api-kit/exam/fbi-exam.service';
 
 @Component({
     selector : 'fbi-note',
@@ -36,8 +37,9 @@ export class FBINotePage implements OnInit{
     tableDetailKnown = [];
     tableDetailQues = [];
     now = moment();
+    viewMode : boolean = false;
 
-    constructor( private router: Router, private route: ActivatedRoute, private location: Location, private note : FbiNotesService){
+    constructor( private router: Router, private route: ActivatedRoute, private location: Location, private note : FbiNotesService, private exam : FbiExamService){
 
     }
     
@@ -56,7 +58,7 @@ export class FBINotePage implements OnInit{
             this.id = param['id'];
             this.examId = param['examId'];
             //console.log("Note id " + this.id);
-            //console.log("Exam id " + this.examId);
+            // console.log("Exam id " + this.examId);
         });
 
         this.requestType =[];
@@ -75,6 +77,17 @@ export class FBINotePage implements OnInit{
         
         this.populateForm();
         this.getNoteDetails();
+        this.setViewMode();
+    }
+
+    setViewMode(){
+        this.exam.getExamPageDetails('edit',this.examId,1).subscribe(res => {
+        if(res.endDate != null && new Date(res.endDate) < new Date())
+            this.viewMode = true;
+        else
+            this.viewMode = false;
+
+        });
     }
     
     determinePath() {
@@ -160,19 +173,16 @@ export class FBINotePage implements OnInit{
                 this.methodModel = res.noteData.method;
                 this.textData = res.noteMessage;
                 this.markComplete = res.markedComplete;
-                this.requestType = JSON.parse("[" + res.noteData.requestType + "]");;
+                this.requestType = JSON.parse("[" + res.noteData.requestType + "]");
                 
             });
 
             
             this.note.getNoteDetails(this.examId,1,this.type).subscribe( res => {
-                //console.log(res);
                 if(this.type =='Shoe' && res.length > 0){
-                    //console.log(res[0].shoeNotes);
                     res[0].shoeNotes.forEach(note => {
                         //console.log(note.knowns);
                         if(note.initialAssessmentNote.id == this.id){
-                            //console.log("Now");
                             this.tableDetailKnown = note.knowns;
                             this.tableDetailQues = note.questions;
                         }   
@@ -226,17 +236,15 @@ export class FBINotePage implements OnInit{
             objPost.id = this.id;
         }
 
-        console.log(objPost);
+       
         if(enter == 'save'){
             this.note.createNote(objPost).subscribe(res => {
-                console.log(res);
                 this.location.back();
                 window.scrollTo(0,0);
             });            
         }
         else if (enter == 'another'){
             this.note.createNote(objPost).subscribe(res => {
-                console.log(res);
                 if(this.type == 'Shoe'){
                     this.router.navigate(['./notes/shoe/new',this.examId]);
                     window.location.reload();
@@ -250,13 +258,12 @@ export class FBINotePage implements OnInit{
         }
         else if(enter == 'ktype'){
             this.note.createNote(objPost).subscribe(res => {
-                console.log(res);
                 if(this.type == 'Shoe'){
-                    this.router.navigate(['./notes/shoe/kdetails/new',this.examId]);
+                    this.router.navigate(['./notes/shoe/kdetails/new',res.caseId,this.examId,res.id]);
                     window.scrollTo(0,0);
                 }
                 else{
-                    this.router.navigate(['./notes/tire/kdetails/new',this.examId]);
+                    this.router.navigate(['./notes/tire/kdetails/new',res.caseId,this.examId,res.id]);
                     window.scrollTo(0,0);
                 }
                 
@@ -264,8 +271,7 @@ export class FBINotePage implements OnInit{
         }
         else if(enter == 'qtype'){
            this.note.createNote(objPost).subscribe(res => {
-                console.log(res);
-                this.router.navigate(['./notes/qdetails/new',this.examId]);
+                this.router.navigate(['./notes/qdetails/new',res.caseId,this.examId,res.id]);
                 window.scrollTo(0,0);
             }); 
         }

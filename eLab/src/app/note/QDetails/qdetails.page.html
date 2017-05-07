@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em">
-        <evidence-table [path]="type"></evidence-table>
+        <evidence-table #table1 [examId]="examId" [noteId]="id"></evidence-table>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em">
@@ -26,23 +26,30 @@
     <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em" >
         <div class="col-xs-1 col-sm-2 col-md-2"></div>
         <div class="col-xs-10 col-sm-8 col-md-8">
-           <textarea [froalaEditor]='{heightMin : 200}' [(ngModel)] = "textData1"  ></textarea>
+           <textarea [froalaEditor]='{heightMin : 200}' [(ngModel)] = "textArea"  ></textarea>
         </div>    
     </div>
 
+    <div class = "col-xs-12 col-sm-12 col-md-12 pd-t-25em">
+        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <input  type = "checkbox" name = "item_check" [(ngModel)] = "markComplete" ><span>&nbsp;Mark as Completed</span>
+        </div>
+    </div> 
+
     <div *ngIf="mode !== 'view'">
-        <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em" >
-            <div class="col-xs-1 col-sm-2 col-md-2"></div>
-            <div class="col-xs-6 col-sm-8 col-md-8">
-                <button type="button" class="btn btn-primary bt-width" (click)="OnSave()">SAVE</button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-danger bt-width" (click)="OnCancel()">CANCEL</button>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 pd-t-25em" >
-            <div class="col-xs-1 col-sm-2 col-md-2"></div>
-            <div class="col-xs-11 col-sm-10 col-md-10 p-1t p-3b" (click) = "onAnother()">
-                <i class="fa fa-check-square ft-15" aria-hidden="true"></i><span>&nbsp;Create Another</span>
-            </div>
-        </div>
-    <div>
+        <div class = "col-xs-12 col-sm-12 col-md-12 pd-t-1em pd-b-3em">
+        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-11 col-sm-8 col-md-8"> 
+            <button type="button" class="btn btn-primary bt-width" (click) = "onSave()">SAVE</button>&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger bt-width" [disabled]="viewMode" (click) = "onCancel()">CANCEL</button>
+        </div>    
+    </div>   
+    <div class = "col-xs-12 col-sm-12 col-md-12 pd-b-3em">
+        <div class="col-xs-1 col-sm-2 col-md-2"></div>
+        <div class="col-xs-11 col-sm-8 col-md-8">
+            <span>Create Another</span>
+            <input type='checkbox' [disabled]="viewMode" [(ngModel)]="createAnother" (change)="onCreateAnother()">
+       </div>     
+    </div>      
 </div>
