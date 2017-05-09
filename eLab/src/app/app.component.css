@@ -7,3 +7,17 @@
 .flex-dp{
   display: flex;
 }
+
+body {
+	overflow: hidden;
+}
+
+.top-padding {
+	padding-top: 60px;
+}
+
+/* Suggested by UX, unclear what element to add to*/
+.content {
+	width: 100%;
+	margin: 20px;
+}
