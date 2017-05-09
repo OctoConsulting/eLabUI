@@ -51,7 +51,7 @@ export class WrapperService {
             oURLSearchParams.set(key, (typeof oApiParam.oParam[key] === 'object') ? JSON.stringify(oApiParam.oParam[key]) : oApiParam.oParam[key]);
         }
 
-        var baseUrl = "http://localhost:8080";
+        var baseUrl="https://elab-proto-1587976572.us-east-2.elb.amazonaws.com";
         //TODO: Implement Post DATA to request
         let jsonOption = {
             "search": oURLSearchParams,
