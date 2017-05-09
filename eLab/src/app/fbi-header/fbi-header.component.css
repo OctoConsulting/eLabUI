@@ -21,3 +21,10 @@
 .grey-bg{
   background: #F1F1F1;
 }
+
+.fixed-header {
+  position: -webkit-sticky;
+  position: sticky;
+  position: fixed;
+  z-index: 1;
+}
