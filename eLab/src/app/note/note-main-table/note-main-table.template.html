@@ -6,7 +6,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 table-heading">
             <div class="btn-group pd-tb-05" [ngClass] = "dropDownFlag === true ? 'open' : ''">
-                <a  class="btn btn-primary">Create Details</a>
+                <a  class="btn btn-primary" (click) = "dropDown()">Create Details</a>
                 <a  class="btn btn-primary dropdown-toggle" (click) = "dropDown()" aria-expanded="true"><span class="caret"></span></a>
                 <ul class="dropdown-menu" *ngIf = "dropDownFlag === true">
                     <li (click) = "onKDetail()"><a>Known Details</a></li>

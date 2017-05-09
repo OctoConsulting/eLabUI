@@ -66,15 +66,15 @@ export class FBINotePage implements OnInit{
         
 
 
-        this.startDate = {
-            date: this.now._d.getDate(),
-            month: this.now._d.getMonth() + 1,
-            year: this.now._d.getFullYear(),
-            hours: this.now._d.getHours(),
-            mins: this.now._d.getMinutes(),
-            secs: this.now._d.getSeconds(),
-            zone: moment().format('Z')
-        }        
+        // this.startDate = {
+        //     date: this.now._d.getDate(),
+        //     month: this.now._d.getMonth() + 1,
+        //     year: this.now._d.getFullYear(),
+        //     hours: this.now._d.getHours(),
+        //     mins: this.now._d.getMinutes(),
+        //     secs: this.now._d.getSeconds(),
+        //     zone: moment().format('Z')
+        // }        
         
         this.populateForm();
         this.getNoteDetails();
