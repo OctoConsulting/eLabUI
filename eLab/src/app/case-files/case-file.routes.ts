@@ -4,6 +4,7 @@ import { CaseFilesComponent } from './case-files.component';
 export const routes: Routes = [
   {
     path: 'case-files',
+    component: CaseFilesComponent,
   },
 ];
 
