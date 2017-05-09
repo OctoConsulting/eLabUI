@@ -25,3 +25,7 @@
 .pd-b-3em{
     padding-bottom: 3em;
 }
+input[type="checkbox"]{
+  width: 16px; /*Desired width*/
+  height: 16px; /*Desired height*/
+}

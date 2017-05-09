@@ -70,4 +70,8 @@
 .pd-t-05em{
     padding-top: 0.5em;
 }
+input[type="checkbox"]{
+  width: 16px; /*Desired width*/
+  height: 16px; /*Desired height*/
+}
 
