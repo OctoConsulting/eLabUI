@@ -38,6 +38,7 @@ export class FBINotePage implements OnInit{
     tableDetailQues = [];
     now = moment();
     viewMode : boolean = false;
+    createAnother : string;
 
     constructor( private router: Router, private route: ActivatedRoute, private location: Location, private note : FbiNotesService, private exam : FbiExamService){
 
@@ -276,6 +277,10 @@ export class FBINotePage implements OnInit{
             }); 
         }
 
+    } 
+
+    onEnterData(){
+        //console.log(this.requestType);
     } 
 
     test(){

@@ -26,6 +26,7 @@ export class QDetailsPage implements OnInit{
     parentId: number;
     private sub: any;
     viewMode : boolean;
+    createAnother : string;
 
     @ViewChild('table1') table1 ; 
 	

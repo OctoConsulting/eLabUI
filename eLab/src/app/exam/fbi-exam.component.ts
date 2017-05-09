@@ -38,6 +38,7 @@ export class FBIExamPage implements OnInit {
     selectedEvidence = [];  
     id : number;
     viewMode : boolean = false;
+    createAnother : string;
       
     constructor(private router: Router, private route: ActivatedRoute,private exam : FbiExamService) {
 

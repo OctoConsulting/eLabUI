@@ -6,6 +6,7 @@
     background: url('../../assets/fbi-header.png') no-repeat center center;
     width: 100%;
     background-size: cover;
+    height: 60px;
 }
 
 .centered {
@@ -15,6 +16,7 @@
 
 .white-text {
     color: #ffffff;
+    font-size: 34px;
 }
 .grey-bg{
   background: #F1F1F1;
