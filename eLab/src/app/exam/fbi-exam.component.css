@@ -46,3 +46,6 @@ input[type="checkbox"]{
   width: 16px; /*Desired width*/
   height: 16px; /*Desired height*/
 }
+.tx-align{
+    text-align: right;
+}

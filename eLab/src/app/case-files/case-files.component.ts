@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-case-files',
+  selector: 'case-files',
   templateUrl: './case-files.component.html',
   styleUrls: ['./case-files.component.css']
 })

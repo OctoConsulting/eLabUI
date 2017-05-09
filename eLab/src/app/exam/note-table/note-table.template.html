@@ -47,7 +47,7 @@
             <div *ngFor="let known of note.knowns let odd = odd">
                 <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
                     <div class="col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewShoeKNote(known.id)">
-                        <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Known Note</h6>
+                        <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">K Item Details</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
                         <h6 [innerHTML] = "known.noteMessage"></h6>
@@ -60,7 +60,7 @@
             <div *ngFor="let ques of note.questions let odd = odd">
                 <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
                     <div class="col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewQuesNote(ques.id)">
-                        <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Question Note</h6>
+                        <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Q Item Details</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
                         <h6 [innerHTML] = "ques.noteMessage" ></h6>
@@ -83,7 +83,7 @@
             <div *ngFor="let known of note.knowns let odd = odd">
                 <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
                     <div class="col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewTireKNote(known.id)">
-                        <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Known Note</h6>
+                        <i *ngIf = "known.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">K Item Details</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
                         <h6 [innerHTML] = "known.noteMessage" ></h6>
@@ -96,7 +96,7 @@
             <div *ngFor="let ques of note.questions let odd = odd">
                 <div class="col-xs-12 col-sm-12 col-sm-12 table-heading">
                     <div class="col-xs-12 col-sm-3 col-md-3 crs" (click) = "viewQuesNote(ques.id)">
-                        <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Question Note</h6>
+                        <i *ngIf = "ques.markedComplete == false"class="fa fa-pencil icon" aria-hidden="true"></i><h6 class="pd-l-17em">Q Item Details</h6>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-7">
                         <h6 [innerHTML] = "ques.noteMessage"></h6>

@@ -29,7 +29,7 @@ export class FBITable implements OnInit {
 
     this.heading = {
       tableHeading: 'Evidence',
-      mainHeading: ['Type', 'Number', 'Name', 'For Analysis'],
+      mainHeading: ['Type', 'ID', 'Name', 'For Analysis'],
       addButton: 'Create Evidence',
     };
 
