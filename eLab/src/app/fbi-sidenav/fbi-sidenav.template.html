@@ -1,19 +1,10 @@
-<div class = "sidenav">
+<div class = "sidenav fixed-sidenav">
  <ul class="nav flex-column">
-  <li (click)='showCaseDetailsDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
-      Case Details
+  <li class="nav-item">
+      <a class='btn btn-primary btn-lg' href='/'>Case Details</a>
   </li>
-  <li id='caseDetailsDropdown' class='dropdown-content nav-item btn btn-lg hidden'>
-    <a href='/'>Home</a>
-    <a href='/evidence/new'>Create Evidence</a>
-    <a href='/exam/new'>Create Exam</a>
-  </li>
-  <li (click)='showCaseFilesDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
-      Case Files
-  </li>
-  <li id='caseFilesDropdown' class='dropdown-content nav-item btn btn-lg hidden dropbtn'>
-    <a href='#'>Under</a>
-    <a href='#'>Construction</a>
+  <li class="nav-item">
+      <a class='btn btn-primary btn-lg' href='/case-files'>Case Files</a>
   </li>
 </ul>
 <div>
