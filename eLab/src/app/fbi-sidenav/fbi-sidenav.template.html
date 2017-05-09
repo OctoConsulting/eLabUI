@@ -1,16 +1,10 @@
 <div class = "sidenav fixed-sidenav">
  <ul class="nav flex-column">
-  <li (click)='showCaseDetailsDropdown()' class="nav-item btn btn-primary btn-lg dropbtn">
-      Case Details
+  <li class="nav-item">
+      <a class='btn btn-primary btn-lg' href='/'>Case Details</a>
   </li>
-  <li id='caseDetailsDropdown' class='dropdown-content nav-item btn btn-lg hidden'
-  (window:mouseup)="addDropdownHidden($event)">
-    <a href='/'>Home</a>
-    <a href='/evidence/new'>Create Evidence</a>
-    <a href='/exam/new'>Create Exam</a>
-  </li>
-  <li class="nav-item btn btn-primary btn-lg dropbtn">
-      Case Files
+  <li class="nav-item">
+      <a class='btn btn-primary btn-lg'>Case Files</a>
   </li>
 </ul>
 <div>

@@ -24,10 +24,4 @@ export class FBISideNav implements OnInit{
       this.router.navigate(['./']);
     //console.log(event);
   }
-
-  /* When the user clicks on the button, 
-  toggle between hiding and showing the dropdown content */
-  showCaseDetailsDropdown() {
-    $("#caseDetailsDropdown").toggleClass('hidden');
-  }
 }

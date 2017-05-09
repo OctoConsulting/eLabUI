@@ -46,3 +46,7 @@
   position: fixed;
 }
 
+.nav-item {
+  padding: 8px;
+}
+
