@@ -10,3 +10,12 @@ h4 {
 h5 {
 	font-size: 14px;
 }
+
+.top-bottom-margin {
+  margin-top:-15px;
+  margin-bottom: 3px;
+}
+
+.table-create-button-margin {
+  margin-bottom: 5px;
+}
