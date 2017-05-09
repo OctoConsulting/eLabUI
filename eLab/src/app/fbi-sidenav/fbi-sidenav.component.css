@@ -29,3 +29,9 @@
   padding: 8px;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #0c83e1;
+    border-color: #285e8e; /*set the color you want here*/
+}
+
