@@ -16,6 +16,7 @@ import { FBISideNav } from './fbi-sidenav/fbi-sidenav.component';
 import { FbiExamModule } from './exam/fbi-exam.module';
 import { FbiNoteModule } from './note/fbi-note.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { CaseFilesComponent } from './case-files/case-files.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
     FbiErrorComponent,
     FbiHomeComponent,
     FBISideNav,
+    CaseFilesComponent,
   ],
   imports: [
     BrowserModule,
