@@ -28,3 +28,7 @@
   position: fixed;
   z-index: 1;
 }
+
+.header-title-margin {
+  margin-top:12px,
+}
