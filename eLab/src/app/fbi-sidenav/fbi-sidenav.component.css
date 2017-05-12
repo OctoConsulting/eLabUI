@@ -23,6 +23,7 @@
   position: -webkit-sticky;
   position: sticky;
   position: fixed;
+  z-index: 1;
 }
 
 .nav-item {
