@@ -13,7 +13,7 @@ import { FbiExamService } from '../../api-kit/exam/fbi-exam.service';
 
 export class QDetailsPage implements OnInit{
 	path : 'view' | 'new' = 'new';
-    type : 'shoe' | 'Tire' = 'Tire';
+    type : 'shoe' | 'tire' = 'tire';
 
 	QtypeModel: number = 0;
 	Qtype = [];
