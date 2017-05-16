@@ -44,6 +44,8 @@ export class KDetailsPage implements OnInit{
 
     ngOnInit(){
         this.determinePath();
+
+        this.determineType();
                     
         this.populateForm();         
 
@@ -77,7 +79,10 @@ export class KDetailsPage implements OnInit{
             this.path = 'view';
         }
 
-        if (/\/shoe/.test(this.router.url)){
+    }
+
+    determineType(){
+        if (/\/shoe/.test(this.router.url)) {
             this.type = 'shoe';
         }
     }
@@ -214,7 +219,7 @@ export class KDetailsPage implements OnInit{
                 this.router.navigate(['./notes/'+this.type+'/kdetails/new',this.notedId,this.examId,this.parentId]);
                 window.location.reload();
             }else{
-                this.router.navigate(['./notes/shoe/view',this.examId,this.parentId]);
+                this.router.navigate(['./notes/'+this.type+'/view',this.examId,this.parentId]);
                 window.scrollTo(0,0);
             }
                 

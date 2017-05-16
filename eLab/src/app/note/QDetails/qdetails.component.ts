@@ -13,6 +13,7 @@ import { FbiExamService } from '../../api-kit/exam/fbi-exam.service';
 
 export class QDetailsPage implements OnInit{
 	path : 'view' | 'new' = 'new';
+    type : 'shoe' | 'Tire' = 'Tire';
 
 	QtypeModel: number = 0;
 	Qtype = [];
@@ -38,6 +39,7 @@ export class QDetailsPage implements OnInit{
     	this.Qtype = [];
 
         this.determinePath();
+        this.determineType();
                     
         this.populateForm();         
 
@@ -71,6 +73,12 @@ export class QDetailsPage implements OnInit{
             this.path = 'view';
         }
 
+    }
+
+    determineType(){
+        if (/\/shoe/.test(this.router.url)) {
+            this.type = 'shoe';
+        }
     }
 
     mapLabelAndValue(val){
@@ -156,7 +164,7 @@ export class QDetailsPage implements OnInit{
                 this.router.navigate(['./notes/qdetails/new',this.notedId,this.examId,this.parentId]);
                 window.location.reload();
             }else{
-                this.location.back();
+                this.router.navigate(['./notes/'+this.type+'/view',this.examId,this.parentId]);
                 window.scrollTo(0,0);
             }
                 
