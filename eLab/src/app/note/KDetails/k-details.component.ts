@@ -214,7 +214,7 @@ export class KDetailsPage implements OnInit{
                 this.router.navigate(['./notes/'+this.type+'/kdetails/new',this.notedId,this.examId,this.parentId]);
                 window.location.reload();
             }else{
-                this.location.back();
+                this.router.navigate(['./notes/shoe/view',this.examId,this.parentId]);
                 window.scrollTo(0,0);
             }
                 
